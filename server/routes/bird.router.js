@@ -7,12 +7,14 @@ const axios = require('axios');
 
 const key = `${process.env.NUTHATCH_API_KEY}`;
 
-// This route *should* return the logged in users birds
+// 
 router.get('/', rejectUnauthenticated, (req, res) => {
-    console.log('Bird Search GET route');
+    console.log('Search birds router.get, req is:', req);
 
     if (req.isAuthenticated()) {
-        axios.get(`https://nuthatch.lastelm.software/v2/birds?page=1&pageSize=25&operator=AND`, { headers: {'API-Key': key, 'accept': 'application/json'} })
+        axios.get(
+            `https://nuthatch.lastelm.software/v2/birds?page=1&pageSize=25&operator=AND`,
+            { headers: {'API-Key': key, 'accept': 'application/json'} })
         .then(response => {
             console.log('response is:', response.data);
             res.send(response.data);

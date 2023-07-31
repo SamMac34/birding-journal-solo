@@ -32,7 +32,7 @@ function Nav() {
               Info Page
             </Link>
 
-            <Link className="navLink" to="/spike">
+            <Link className="navLink" to="/search">
               Search Page
             </Link>
 

@@ -6,16 +6,16 @@ function* getBirds() {
 
     try {
         const response = yield axios.get('/api/birds')
-        // console.log('response/data is:', response.data.entities[3].name)
+        console.log('response/data is:', response.data.entities)
         yield put({
             type: 'SET_BIRDS',
             payload: {
-                name: response.data.entities[3].name,
-                image: response.data.entities[3].images[0]
+                name: response.data.entities[0].name,
+                image: response.data.entities[0].images[0]
             }
     })
     } catch (error) {
-        console.log('Error in getBirds saga:', error)
+        console.log('Error in getBird saga:', error)
     }
 }
 

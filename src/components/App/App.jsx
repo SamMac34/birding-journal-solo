@@ -69,6 +69,14 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows SearchPage else shows LoginPage
+            exact
+            path="/search"
+          >
+            <SearchPage />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
