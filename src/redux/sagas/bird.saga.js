@@ -19,7 +19,6 @@ function* getBirds() {
     }
 }
 
-
 function* birdSaga() {
     yield takeLatest('GET_BIRDS', getBirds)
 }
