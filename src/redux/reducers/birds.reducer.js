@@ -1,4 +1,4 @@
-const birdReducer = (state = [], action) => {
+const birdReducer = (state = {}, action) => {
     switch (action.type) {
       case 'SET_BIRDS':
         console.log('action.payload is:', action.payload)

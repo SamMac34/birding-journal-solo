@@ -110,3 +110,12 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.bird-card {
+  border: 1px solid black;
+}

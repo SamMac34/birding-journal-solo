@@ -1,0 +1,20 @@
+img {
+    display: block;
+}
+
+.bird-card {
+    display: flex;
+}
+
+.bird-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bird-title-no-image {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 200px;
+    min-height: 150px;
+}
+

@@ -8,12 +8,14 @@ const axios = require('axios');
 const key = `${process.env.NUTHATCH_API_KEY}`;
 
 // 
-router.get('/', rejectUnauthenticated, (req, res) => {
-    console.log('Search birds router.get, req is:', req);
+router.get('/:birdName', rejectUnauthenticated, (req, res) => {
+    const query = req.params.birdName;
 
     if (req.isAuthenticated()) {
+        console.log('SEARCH BIRDS.ROUTER, REQ.BODY IS:', query);
+
         axios.get(
-            `https://nuthatch.lastelm.software/v2/birds?page=1&pageSize=25&operator=AND`,
+            `https://nuthatch.lastelm.software/v2/birds?page=1&pageSize=5&operator=AND&name=${query}`,
             { headers: {'API-Key': key, 'accept': 'application/json'} })
         .then(response => {
             console.log('response is:', response.data);
