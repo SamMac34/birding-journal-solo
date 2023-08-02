@@ -1,20 +1,52 @@
-img {
-    display: block;
+h1 {
+    font-size: 2em;
+    text-align: center;
+    border: 1px solid black;
 }
+
 
 .bird-card {
     display: flex;
 }
 
-.bird-title {
+.bird-name {
     font-weight: bold;
     font-size: 20px;
+    margin-left: 2em;
+    padding: 5px;
 }
 
-.bird-title-no-image {
+/* .bird-name-no-image {
     font-weight: bold;
     font-size: 20px;
-    margin-left: 200px;
-    min-height: 150px;
+    margin-left: 2em;
+    min-height: 7em;
+} */
+
+.bird-sci-name {
+    font-style: italic;
+    padding: 9px 5px 5px 5px;
+    margin-left: 5px;
 }
 
+.bird-regions {
+    /* border: 1px solid black; */
+    padding: 9px 5px 5px 5px;
+    margin-left: 5px;
+}
+
+.bird-status {
+    /* border: 1px solid black; */
+    padding: 9px 5px 5px 5px;
+    margin-left: 5px;
+}
+
+input {
+    /* height: 2em; */
+    font-size: 1em;
+}
+
+button {
+    font-size: 1em;
+
+}

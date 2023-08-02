@@ -11,7 +11,8 @@ body {
 
 img {
   display: inline-block;
-  max-width: 100%;
+  max-width: 200px;
+  max-height: 100%;
 }
 
 /* --------------------------------------------------------------------------------
@@ -109,11 +110,6 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
-}
-
-img {
-  max-width: 200px;
-  max-height: 200px;
 }
 
 .bird-card {

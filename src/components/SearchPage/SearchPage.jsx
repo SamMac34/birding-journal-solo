@@ -34,26 +34,35 @@ function SearchPage() {
                 <button type='submit'>Search</button>
             </form>
 
-            <h1>Results:</h1>
+            <h1>Results</h1>
 
-        
             {birds?.entities?.map((bird) => {
                 return (
-                    bird.images[0] ?
-                        <div key={bird.name}className="bird-card">
-                            <img src={bird.images[0]} />
-                            <div className="bird-title">{bird.name}</div>
+                    // bird.images[0] ?
+                        <div key={bird.name} className="bird-card">
+                            <img
+                            src={bird.images[0] ? bird.images[0]
+                            :
+                            "./images/image-not-available.png"}
+                            />
+                            <div className="bird-name">{bird.name}</div>
+                            <div className="bird-sci-name">{'('+ bird.sciName + ')'}</div>
+                            <div className="bird-regions">{bird.region[1] ? bird.region[0]+','+bird.region[1] : bird.region[0] }</div>
+                            <div className="bird-status">{bird.status}</div>
                         </div>
-                        :
-                        <div key={bird.name}className="bird-card">
-                        <div className="bird-title-no-image">{bird.name}</div>   
-                    </div>        
-                    
+                        // :
+                        // <div key={bird.name} className="bird-card">
+                        //     <img src="./images/image-not-available.png" alt="no image available" />
+                        //     <div className="bird-name">{bird.name}</div>
+                        //     <div className="bird-sci-name">{bird.sciName}</div>
+                        //     <div className="bird-regions"></div>
+                        //     <div className="bird-status">{bird.region[1] ? bird.region[0]+','+bird.region[1] : bird.region[0] }</div>
+                        // </div>
+
                 )
             })}
         </section>
     )
 }
-
 
 export default SearchPage;
