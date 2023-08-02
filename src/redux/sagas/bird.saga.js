@@ -1,5 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import AddBirdToCollection from '../../components/AddBirdForm/AddBirdForm';
 
 function* getBirds(action) {
     console.log('In bird saga, action.payload is:', action.payload)
@@ -16,8 +17,12 @@ function* getBirds(action) {
     }
 }
 
+
+
 function* birdSaga() {
-    yield takeLatest('GET_BIRDS', getBirds)
+    yield takeLatest('GET_BIRDS', getBirds);
+    yield takeLatest('ADD_BIRD', AddBirdToCollection)
+
 }
 
 export default birdSaga;

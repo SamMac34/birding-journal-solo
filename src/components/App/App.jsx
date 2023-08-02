@@ -20,9 +20,10 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
-import AddBirdToCollection from '../AddBirdToCollection/AddBirdToCollection';
+import AddBirdForm from '../AddBirdForm/AddBirdForm';
 
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -79,11 +80,11 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows AddBirdToCollection else shows LoginPage
+            // logged in shows AddBirdForm else shows LoginPage
             exact
-            path="/addbirdtocollection"
+            path="/addbirdform"
           >
-            <AddBirdToCollection />
+            <AddBirdForm />
           </ProtectedRoute>
 
           <Route

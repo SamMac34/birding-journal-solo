@@ -36,7 +36,7 @@ function Nav() {
               Search Page
             </Link>
 
-            <Link className="navLink" to="/addbirdtocollection">
+            <Link className="navLink" to="/addbirdform">
               Add Bird<br />to Collection
             </Link>
 
