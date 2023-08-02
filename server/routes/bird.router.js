@@ -5,11 +5,11 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const axios = require('axios');
 
 
-const key = `${process.env.NUTHATCH_API_KEY}`;
 
 // 
 router.get('/:birdName', rejectUnauthenticated, (req, res) => {
     const query = req.params.birdName;
+    const key = `${process.env.NUTHATCH_API_KEY}`;
 
     if (req.isAuthenticated()) {
         console.log('SEARCH BIRDS.ROUTER, REQ.BODY IS:', query);

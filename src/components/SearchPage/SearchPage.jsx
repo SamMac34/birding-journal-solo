@@ -25,7 +25,7 @@ function SearchPage() {
             {/* TODO - add label, required */}
             <form onSubmit={searchBirds}>
                 <input
-                    type="bird"
+                    type="text"
                     name="bird"
                     placeholder="Search birds"
                     value={birdName}
