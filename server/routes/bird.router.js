@@ -12,7 +12,6 @@ router.get('/:birdName', rejectUnauthenticated, (req, res) => {
     const key = `${process.env.NUTHATCH_API_KEY}`;
 
     if (req.isAuthenticated()) {
-        console.log('SEARCH BIRDS.ROUTER, REQ.BODY IS:', query);
 
         axios.get(
             `https://nuthatch.lastelm.software/v2/birds?page=1&pageSize=5&operator=AND&name=${query}`,
@@ -29,5 +28,7 @@ router.get('/:birdName', rejectUnauthenticated, (req, res) => {
         res.sendStatus(403);
     }
 });
+
+
 
 module.exports = router;

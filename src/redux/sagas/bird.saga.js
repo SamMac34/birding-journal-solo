@@ -2,8 +2,9 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import AddBirdToCollection from '../../components/AddBirdForm/AddBirdForm';
 
+// GET birds searched from API
 function* getBirds(action) {
-    console.log('In bird saga, action.payload is:', action.payload)
+    console.log('In bird saga(getBirds), action.payload is:', action.payload)
 
     try {
         const response = yield axios.get(`/api/birds/${action.payload}`)
@@ -17,6 +18,17 @@ function* getBirds(action) {
     }
 }
 
+function* AddBirdToCollection(action) {
+    console.log('In bird saga(addBirdToCollection), action.payload is:', action.payload);
+
+    try {
+        yield axios.post(`/api/birds`, action.payload);
+        yield put({ type: 'FETCH_COLLECTION' })
+
+    } catch (error) {
+        console.log('Error Adding bird to Collection', error);
+    }
+}
 
 
 function* birdSaga() {
