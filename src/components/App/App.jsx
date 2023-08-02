@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
+import AddBirdToCollection from '../AddBirdToCollection/AddBirdToCollection';
 
 import './App.css';
 
@@ -75,6 +76,14 @@ function App() {
             path="/search"
           >
             <SearchPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows AddBirdToCollection else shows LoginPage
+            exact
+            path="/addbirdtocollection"
+          >
+            <AddBirdToCollection />
           </ProtectedRoute>
 
           <Route
