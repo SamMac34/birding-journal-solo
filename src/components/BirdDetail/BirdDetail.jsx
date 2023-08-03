@@ -16,6 +16,15 @@ function BirdDetail(props) {
         history.push('/editbird');
     };
 
+    const handleDeleteBirdClick = () => {
+        console.log('In BirdDetail(handleDelete) props.bird is:', props.bird)
+        dispatch({
+            type: 'DELETE_BIRD',
+            payload: props.bird
+        })
+    }
+
+    
     return (
         <div className="bird-card">
             <img
@@ -30,7 +39,7 @@ function BirdDetail(props) {
             <div >Time seen: {props.bird.time}</div>
             <div >Date seen: {props.bird.date}</div>
             <button onClick={handleEditBirdClick}>Edit</button>
-            <button>Remove</button>
+            <button onClick={handleDeleteBirdClick}>Remove</button>
         </div>
     )
 };

@@ -5,11 +5,12 @@ import './SearchPage.css';
 
 function SearchPage() {
     const [birdName, setBirdName] = useState('')
-    const birds = useSelector((store) => store.birds);
+    const birds = useSelector((store) => store.searchBirds);
     const dispatch = useDispatch();
 
 
-    const searchBirds = () => {
+    const searchBirds = (event) => {
+        event.preventDefault();
         console.log('In searchBirds(SearchPage) bird is:', birdName)
         dispatch({
             type: 'SEARCH_BIRDS',

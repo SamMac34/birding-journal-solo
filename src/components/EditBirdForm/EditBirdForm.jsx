@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -50,7 +50,7 @@ function EditBirdForm() {
         <input value={birdToEdit.date} type="date" placeholder="Date" onChange={event => handleChange(event, 'date')} />
         <input value={birdToEdit.time} type="time" placeholder="Time" onChange={event => handleChange(event, 'time')} />
         <input value={birdToEdit.notes} type="text" placeholder="Notes" onChange={event => handleChange(event, 'notes')} />
-        <input value={birdToEdit.image} type="text" placeholder="Add Image" onChange={event => handleChange(event, 'image')} />
+        <input value={birdToEdit.bird_image} type="text" placeholder="Add Image" onChange={event => handleChange(event, 'bird_image')} />
 
         <button onClick={cancelEditBird} type="button" >Cancel Edit Bird</button>
         <button type="submit">Edit Bird</button>

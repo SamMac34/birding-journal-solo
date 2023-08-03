@@ -7,6 +7,7 @@ function AddBirdForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(store => store.user)
+    // const bird = useSelector(store => store.bird)
 
     const [birdName, setBirdName] = useState('');
     const [observationLocation, setObservationLocation] = useState('');
@@ -22,7 +23,7 @@ function AddBirdForm() {
             type: 'ADD_BIRD',
             payload: {
                 userId: user.id,
-                name: birdName,
+                bird_name: birdName,
                 location: observationLocation,
                 date: observationDate,
                 time: observationTime,
@@ -34,8 +35,7 @@ function AddBirdForm() {
 
     // Return user to previous page if AddBird is cancelled
     const cancelAddBird = () => {
-        // TODO Add path 
-        history.push('/')
+        history.push('/profile')
     };
 
     // TODO - make sure inputs have required/value/
@@ -44,13 +44,12 @@ function AddBirdForm() {
 
         <h1>Add a bird to your Collection!</h1>
 
-        <input type="text" placeholder="Bird Name" onChange={e => {setBirdName(e.target.value)}} required />
-        <input type="text" placeholder="Location" onChange={e => {setObservationLocation(e.target.value)}} />
-        <input type="date" placeholder="Date" onChange={e => {setObservationDate(e.target.value)}} />
-        <input type="time" placeholder="Time" onChange={e => {setObservationTime(e.target.value)}} />
-        <input type="text" placeholder="Notes" onChange={e => {setObservationNotes(e.target.value)}} />
-        <input type="text" placeholder="Add Image" onChange={e => {setBirdImage(e.target.value)}} />
-
+        <input value={birdName} type="text" placeholder="Bird Name" onChange={e => {setBirdName(e.target.value)}} required />
+        <input value={observationLocation} type="text" placeholder="Location" onChange={e => {setObservationLocation(e.target.value)}} />
+        <input value={observationDate} type="date" placeholder="Date" onChange={e => {setObservationDate(e.target.value)}} />
+        <input value={observationTime} type="time" placeholder="Time" onChange={e => {setObservationTime(e.target.value)}} />
+        <input value={observationNotes} type="text" placeholder="Notes" onChange={e => {setObservationNotes(e.target.value)}} />
+        <input value={birdImage} type="text" placeholder="Add Image" onChange={e => {setBirdImage(e.target.value)}} />
         <button onClick={cancelAddBird} type="button" >Cancel Add Bird</button>
         <button type="submit">Add Bird</button>
 
