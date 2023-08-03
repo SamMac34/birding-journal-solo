@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
 import AddBirdForm from '../AddBirdForm/AddBirdForm';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import EditBirdForm from '../EditBirdForm/EditBirdForm';
 
 import './App.css';
 
@@ -83,9 +84,17 @@ function App() {
           <ProtectedRoute
             // logged in shows AddBirdForm else shows LoginPage
             exact
-            path="/addbirdform"
+            path="/addbird"
           >
             <AddBirdForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows EditBirdForm else shows LoginPage
+            exact
+            path="/editbird"
+          >
+            <EditBirdForm />
           </ProtectedRoute>
 
           <Route

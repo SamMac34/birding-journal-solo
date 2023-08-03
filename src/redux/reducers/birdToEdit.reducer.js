@@ -1,4 +1,4 @@
-const birdToEdit = (state=[], action) => {
+const birdToEdit = (state = {}, action) => {
     switch (action.type) {
         case 'SET_EDIT_BIRD':
           console.log('action.payload is:', action.payload)
@@ -11,7 +11,6 @@ const birdToEdit = (state=[], action) => {
         default:
           return state;
       }
-    return state;
 }
 
 export default birdToEdit;

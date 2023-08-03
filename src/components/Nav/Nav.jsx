@@ -36,8 +36,12 @@ function Nav() {
               Search Page
             </Link>
 
-            <Link className="navLink" to="/addbirdform">
+            <Link className="navLink" to="/addbird">
               Add Bird<br />to Collection
+            </Link>
+
+            <Link className="navLink" to="/editbird">
+            Edit Bird<br />in Collection
             </Link>
 
             <LogOutButton className="navLink" />

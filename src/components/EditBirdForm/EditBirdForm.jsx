@@ -7,56 +7,55 @@ function EditBirdForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(store => store.user)
+    const birdToEdit = useSelector(store => store.birdToEdit)
 
-    const [birdName, setBirdName] = useState('');
-    const [observationLocation, setObservationLocation] = useState('');
-    const [observationDate, setObservationDate] = useState('');
-    const [observationTime, setObservationTime] = useState('');
-    const [observationNotes, setObservationNotes] = useState('');
-    const [birdImage, setBirdImage] = useState('');
-
+    console.log('birdToEdit is:', birdToEdit);
     
-    // Dispatch EDIT_BIRD action
-    const handleEditBird = () => {
+    // Dispatch action to update birdToEdit reducer with edited data
+    const handleChange = (event, propertyToChange) => {
         dispatch({
-            type: 'EDIT_BIRD',
+            type: 'EDIT_ONCHANGE',
             payload: {
-                userId: user.id,
-                name: birdName,
-                location: observationLocation,
-                date: observationDate,
-                time: observationTime,
-                notes: observationNotes,
-                image: birdImage
+                property: propertyToChange,
+                value: event.target.value
             }
         })
     };
 
-    // Return user to MyCollection page if EditBird is cancelled
+    // Dispatch edit action and send edited data to editBird saga,
+    // then take user back to Profile page
+    const handleSubmit = (event) => {
+        event.preventDeafault();
+        dispatch({
+            type: 'SUBMIT_EDIT_BIRD',
+            payload: birdToEdit
+        })
+        history.push('/profile')
+    };
+
+    // Return user to Profile page if edit bird is cancelled
     const cancelEditBird = () => {
-        history.push('/mycollection')
+        history.push('/profile')
     };
 
     // TODO - make sure inputs have required/value/
     return (
-        <form onSubmit={handleEditBird}>
+        <form onSubmit={handleSubmit}>
 
         <h1>Edit bird in your Collection!</h1>
 
-        <input type="text" placeholder="Bird Name" onChange={e => {setBirdName(e.target.value)}} required />
-        <input type="text" placeholder="Location" onChange={e => {setObservationLocation(e.target.value)}} />
-        <input type="date" placeholder="Date" onChange={e => {setObservationDate(e.target.value)}} />
-        <input type="time" placeholder="Time" onChange={e => {setObservationTime(e.target.value)}} />
-        <input type="text" placeholder="Notes" onChange={e => {setObservationNotes(e.target.value)}} />
-        <input type="text" placeholder="Add Image" onChange={e => {setBirdImage(e.target.value)}} />
+        <input value={birdToEdit.name} type="text" placeholder="Bird Name" onChange={e => handleChange(e, 'name')} required />
+        <input value={birdToEdit.location} type="text" placeholder="Location" onChange={e => handleChange(e, 'location')} />
+        <input value={birdToEdit.date} type="date" placeholder="Date" onChange={e => handleChange(e, 'date')} />
+        <input value={birdToEdit.time} type="time" placeholder="Time" onChange={e => handleChange(e, 'time')} />
+        <input value={birdToEdit.notes} type="text" placeholder="Notes" onChange={e => handleChange(e, 'notes')} />
+        <input value={birdToEdit.image} type="text" placeholder="Add Image" onChange={e => handleChange(e, 'image')} />
 
-        <button onClick={cancelEditBird} type="button" >Cancel Add Bird</button>
-        <button type="submit">Add Bird</button>
+        <button onClick={cancelEditBird} type="button" >Cancel Edit Bird</button>
+        <button type="submit">Edit Bird</button>
 
         </form>
-
     )
-
-}
+};
 
 export default EditBirdForm;

@@ -3,7 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import searchBirds from './birds.reducer';
 import myCollection from './my.collection.reducer';
-import birdToEdit from './edit.bird.reducer';
+import birdToEdit from './birdToEdit.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
