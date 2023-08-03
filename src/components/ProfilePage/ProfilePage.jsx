@@ -23,15 +23,20 @@ function ProfilePage() {
         });
     }
 
-    // birds={}, birds.entities=[{}]
-    console.log('In Profile, birdCollection is:', birdCollection)
-    console.log('In Profile, user is:', user)
+    const editBird = () => {
+        dispatch({
+            type: 'EDIT_BIRD',
+
+        })
+    }
+    // console.log('In Profile, birdCollection is:', birdCollection)
+    // console.log('In Profile, user is:', user)
 
 
     return (
         <>
             <div id="user-profile" >
-                User Profile
+                <img src="./images/image-not-available.png"/>
                 <h2>{user.username}</h2>
 
             </div>
@@ -45,10 +50,13 @@ function ProfilePage() {
                                 "./images/image-not-available.png"}
                         />
                         <div className="bird-name">{bird.bird_name}</div>
-                        <div >{bird.location}</div>
-                        <div >{bird.notes}</div>
-                        <div >{bird.time}</div>
-                        <div >{bird.date}</div>
+                        <div >Observation Location: {bird.location}</div>
+                        <div >Notes: {bird.notes}</div>
+                        <div >Time seen: {bird.time}</div>
+                        <div >Date seen: {bird.date}</div>
+                        <button onClick={history.push('/editbird')}>Edit</button>
+                        <button>Remove</button>
+
                     </div>
                 )
             })}

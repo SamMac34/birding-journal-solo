@@ -1,4 +1,4 @@
-const birdReducer = (state = {}, action) => {
+const searchBirdReducer = (state = {}, action) => {
     switch (action.type) {
       case 'SET_BIRDS':
         console.log('action.payload is:', action.payload)
@@ -8,4 +8,4 @@ const birdReducer = (state = {}, action) => {
     }
   };
   
-  export default birdReducer;
+  export default searchBirdReducer;
