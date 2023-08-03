@@ -18,8 +18,8 @@ function* getBirds(action) {
     }
 }
 
-function* AddBirdToCollection(action) {
-    console.log('In bird saga(addBirdToCollection), action.payload is:', action.payload);
+function* addBirdToCollection(action) {
+    console.log('In bird saga(add-BirdToCollection), action.payload is:', action.payload);
 
     try {
         yield axios.post(`/api/birds`, action.payload);
@@ -33,7 +33,7 @@ function* AddBirdToCollection(action) {
 
 function* birdSaga() {
     yield takeLatest('GET_BIRDS', getBirds);
-    yield takeLatest('ADD_BIRD', AddBirdToCollection)
+    yield takeLatest('ADD_BIRD', addBirdToCollection)
 
 }
 
