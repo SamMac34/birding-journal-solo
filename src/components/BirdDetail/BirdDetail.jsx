@@ -5,13 +5,12 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function BirdDetail(props) {
     const dispatch = useDispatch();
     const history = useHistory();
-    // const birdCollection = useSelector(store => store.myCollection);
     const user = useSelector(store => store.user);
 
     // Dispatch action to edit selected bird
     const handleEditBirdClick = () => {
         dispatch({
-            type: 'EDIT_BIRD',
+            type: 'SET_EDIT_BIRD',
             payload: props.bird
         })
         history.push('/editbird');
@@ -25,6 +24,7 @@ function BirdDetail(props) {
                     "./images/image-not-available.png"}
             />
             <div className="bird-name">{props.bird.bird_name}</div>
+            <div>Bird ID is: {props.bird.id}</div>
             <div >Observation Location: {props.bird.location}</div>
             <div >Notes: {props.bird.notes}</div>
             <div >Time seen: {props.bird.time}</div>

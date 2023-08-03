@@ -11,7 +11,6 @@ function ProfilePage() {
     const birdCollection = useSelector(store => store.myCollection);
     const user = useSelector(store => store.user);
 
-    // console.log('user is:', user)
 
     // Load bird collection on page load
     useEffect(() => {
@@ -26,7 +25,7 @@ function ProfilePage() {
         });
     }
 
-    console.log('In Profile, birdCollection is:', birdCollection)
+    // console.log('In Profile, birdCollection is:', birdCollection)
     // console.log('In Profile, user is:', user)
 
 
@@ -36,7 +35,6 @@ function ProfilePage() {
                 <img src="./images/image-not-available.png"/>
                 <h2>{user.username}</h2>
             </div>
-            
             <h1>My Collection</h1>
             {birdCollection?.map((bird) => {
                 return (

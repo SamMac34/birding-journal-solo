@@ -19,7 +19,7 @@ function* searchBirds(action) {
 
 // Fetch bird collection by user ID
 function* fetchBirdCollection(action) {
-    // console.log('In fetchBirdCollection saga, action.payload is:', action.payload)
+    console.log('In fetchBirdCollection saga, action.payload is:', action.payload)
     try {
         const response = yield axios.get(`/birds/${action.payload}`)
         console.log('response.data is:', response.data)
@@ -44,9 +44,11 @@ function* addBirdToCollection(action) {
 
 // Edit bird in collection
 function* editBirdCollection(action) {
+
     try {
+        console.log('In editBirdCollection, action.payload is:', action.payload)
         yield axios.put(`/birds/${action.payload.id}`, action.payload);
-        yield put({ type: 'FETCH_BIRD_COLLECTION' })
+        yield put({ type: 'FETCH_BIRD_COLLECTION', payload: action.userId })
 
     } catch (err) {
         console.log('Error sending edit bird info to server:', err);
