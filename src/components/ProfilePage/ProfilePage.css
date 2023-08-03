@@ -4,3 +4,12 @@
     height: 10em;
     margin: 5em auto;
 }
+
+h2 {
+    text-align: center;
+}
+
+.bird-card {
+    padding: 9px 5px 5px 5px;
+    margin-left: 5px;
+}

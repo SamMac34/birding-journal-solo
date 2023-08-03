@@ -12,7 +12,7 @@ function SearchPage() {
     const searchBirds = () => {
         console.log('In searchBirds(SearchPage) bird is:', birdName)
         dispatch({
-            type: 'GET_BIRDS',
+            type: 'SEARCH_BIRDS',
             payload: birdName
         });
     }
@@ -38,7 +38,6 @@ function SearchPage() {
 
             {birds?.entities?.map((bird) => {
                 return (
-                    // bird.images[0] ?
                         <div key={bird.name} className="bird-card">
                             <img
                             src={bird.images[0] ? bird.images[0]

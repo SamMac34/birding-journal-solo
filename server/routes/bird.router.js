@@ -49,11 +49,12 @@ router.post('/', (req, res) => {
   });
 
 // Fetch all birds in 'my_collection'
-router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM "my_collection"`;
+router.get('/:id', (req, res) => {
+    const queryText = `SELECT * FROM "my_collection" WHERE "user_id" = $1`;
+    const userId = req.params;
 
     if (req.isAuthenticated()) {
-        pool.query(queryText)
+        pool.query(queryText, [userId])
         .then(response => { res.send(response.rows) })
         .catch(err => {
             console.log('Error fetching birds from "my_collection" table:', err);
