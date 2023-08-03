@@ -23,6 +23,7 @@ import SearchPage from '../SearchPage/SearchPage';
 import AddBirdForm from '../AddBirdForm/AddBirdForm';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import EditBirdForm from '../EditBirdForm/EditBirdForm';
+// import BirdDetail from '../BirdDetail/BirdDetail';
 
 import './App.css';
 
