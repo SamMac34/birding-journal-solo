@@ -15,8 +15,6 @@ function AddBirdForm() {
     const [observationNotes, setObservationNotes] = useState('');
     const [birdImage, setBirdImage] = useState('');
 
-
-    // console.log("user id:", user.id);
     
     // Dispatch ADD_BIRD action
     const handleBirdInfo = () => {

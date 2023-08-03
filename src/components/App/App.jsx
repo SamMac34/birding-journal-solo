@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
 import AddBirdForm from '../AddBirdForm/AddBirdForm';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 import './App.css';
 
@@ -64,11 +65,11 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows ProfilePage else shows LoginPage
             exact
-            path="/info"
+            path="/profile"
           >
-            <InfoPage />
+            <ProfilePage />
           </ProtectedRoute>
 
           <ProtectedRoute
