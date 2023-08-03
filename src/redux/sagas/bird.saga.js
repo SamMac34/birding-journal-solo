@@ -17,17 +17,6 @@ function* searchBirds(action) {
     }
 };
 
-// Add bird to collection
-function* addBirdToCollection(action) {
-    // console.log('In bird saga(addBirdToCollection), action.payload is:', action.payload);
-    try {
-        yield axios.post(`/api/birds`, action.payload);
-        yield put({ type: 'FETCH_BIRD_COLLECTION' })
-    } catch (error) {
-        console.log('Error Adding bird to Collection', error);
-    }
-};
-
 // Fetch bird collection by user ID
 function* fetchBirdCollection(action) {
     // console.log('In fetchBirdCollection saga, action.payload is:', action.payload)
@@ -42,13 +31,34 @@ function* fetchBirdCollection(action) {
         console.log('Error in fetchBirdCollection saga:', err)
     }
 };
+// Add bird to collection
+function* addBirdToCollection(action) {
+    // console.log('In bird saga(addBirdToCollection), action.payload is:', action.payload);
+    try {
+        yield axios.post(`/birds`, action.payload);
+        yield put({ type: 'FETCH_BIRD_COLLECTION' })
+    } catch (error) {
+        console.log('Error Adding bird to Collection', error);
+    }
+};
+
+// Edit bird in collection
+function* editBirdCollection(action) {
+    try {
+        yield axios.put(`/birds/${action.payload.id}`, action.payload);
+        yield put({ type: 'FETCH_BIRD_COLLECTION' })
+
+    } catch (err) {
+        console.log('Error sending edit bird info to server:', err);
+    }
+};
 
 // Watcher saga
 function* birdSaga() {
     yield takeLatest('SEARCH_BIRDS', searchBirds);
     yield takeLatest('ADD_BIRD', addBirdToCollection);
     yield takeLatest('FETCH_BIRD_COLLECTION', fetchBirdCollection);
-
+    yield takeLatest('SUBMIT_EDIT_BIRD', editBirdCollection);
 };
 
 export default birdSaga;

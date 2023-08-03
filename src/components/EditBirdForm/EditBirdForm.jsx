@@ -44,8 +44,8 @@ function EditBirdForm() {
 
         <h1>Edit bird in your Collection!</h1>
 
-        <input value={birdToEdit.name} type="text" placeholder="Bird Name" onChange={e => handleChange(e, 'name')} required />
-        <input value={birdToEdit.location} type="text" placeholder="Location" onChange={e => handleChange(e, 'location')} />
+        <input value={birdToEdit.name} type="text" placeholder="Bird Name" onChange={event => handleChange(event, 'name')} required />
+        <input value={birdToEdit.location} type="text" placeholder="Location" onChange={event => handleChange(event, 'location')} />
         <input value={birdToEdit.date} type="date" placeholder="Date" onChange={e => handleChange(e, 'date')} />
         <input value={birdToEdit.time} type="time" placeholder="Time" onChange={e => handleChange(e, 'time')} />
         <input value={birdToEdit.notes} type="text" placeholder="Notes" onChange={e => handleChange(e, 'notes')} />

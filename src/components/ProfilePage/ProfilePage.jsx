@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './ProfilePage.css'
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function ProfilePage() {
+    const dispatch = useDispatch();
+    const history = useHistory();
     const birdCollection = useSelector(store => store.myCollection);
     const user = useSelector(store => store.user);
-    const dispatch = useDispatch();
 
     // console.log('user is:', user)
 
@@ -23,13 +25,15 @@ function ProfilePage() {
         });
     }
 
-    const editBird = () => {
+    const handleEditBirdClick = () => {
         dispatch({
             type: 'EDIT_BIRD',
-
+            payload: birdCollection
         })
-    }
-    // console.log('In Profile, birdCollection is:', birdCollection)
+        history.push('/editbird');
+    };
+
+    console.log('In Profile, birdCollection is:', birdCollection)
     // console.log('In Profile, user is:', user)
 
 
@@ -54,7 +58,7 @@ function ProfilePage() {
                         <div >Notes: {bird.notes}</div>
                         <div >Time seen: {bird.time}</div>
                         <div >Date seen: {bird.date}</div>
-                        <button onClick={history.push('/editbird')}>Edit</button>
+                        <button onClick={handleEditBirdClick}>Edit</button>
                         <button>Remove</button>
 
                     </div>
