@@ -68,7 +68,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 // Delete bird from my_collection table
-router.put('/:id', rejectUnauthenticated, (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const idToDelete = req.params.id;
     const queryText = `DELETE FROM "my_collection" WHERE "id" = $1;`;
 

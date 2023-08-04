@@ -41,7 +41,6 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/editbird">
-            Edit Bird<br />in Collection
             </Link>
 
             <LogOutButton className="navLink" />

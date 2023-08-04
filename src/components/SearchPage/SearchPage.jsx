@@ -32,7 +32,7 @@ function SearchPage() {
                     value={birdName}
                     onChange={event => setBirdName(event.target.value)}
                 />
-                <button type='submit'>Search</button>
+                <button className="search-btn" type='submit'>Search</button>
             </form>
 
             <h1>Results</h1>
@@ -49,15 +49,9 @@ function SearchPage() {
                             <div className="bird-sci-name">{'('+ bird.sciName + ')'}</div>
                             <div className="bird-regions">{bird.region[1] ? bird.region[0]+','+bird.region[1] : bird.region[0] }</div>
                             <div className="bird-status">{bird.status}</div>
+                            <button className="add-to-collection-btn">Add to Collection</button>
+                            <button className="add-to-wishlist-btn">Add to Wishlist</button>
                         </div>
-                        // :
-                        // <div key={bird.name} className="bird-card">
-                        //     <img src="./images/image-not-available.png" alt="no image available" />
-                        //     <div className="bird-name">{bird.name}</div>
-                        //     <div className="bird-sci-name">{bird.sciName}</div>
-                        //     <div className="bird-regions"></div>
-                        //     <div className="bird-status">{bird.region[1] ? bird.region[0]+','+bird.region[1] : bird.region[0] }</div>
-                        // </div>
 
                 )
             })}

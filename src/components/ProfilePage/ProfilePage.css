@@ -24,3 +24,11 @@ img {
     align-self: flex-start;
     /* margin: auto 10px; */
 }
+
+.collection-button, .wishlist-button {
+    width: 50%;
+    height: 2em;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: none;
+}

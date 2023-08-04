@@ -20,11 +20,12 @@ function BirdDetail(props) {
         console.log('In BirdDetail(handleDelete) props.bird is:', props.bird)
         dispatch({
             type: 'DELETE_BIRD',
-            payload: props.bird
+            payload: props.bird,
+            user: user.id
         })
     }
 
-    
+
     return (
         <div className="bird-card">
             <img

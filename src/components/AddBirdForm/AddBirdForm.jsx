@@ -31,6 +31,7 @@ function AddBirdForm() {
                 image: birdImage
             }
         })
+        history.push('/profile');
     };
 
     // Return user to previous page if AddBird is cancelled

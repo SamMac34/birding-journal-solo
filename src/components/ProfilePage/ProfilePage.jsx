@@ -31,11 +31,17 @@ function ProfilePage() {
 
     return (
         <>
-            <div id="user-profile" >
+            {/* Add # of birds in collection/wishlist, date joined, last bird added */}
+            <div id="user-profile">
                 <img src="./images/image-not-available.png"/>
                 <h2>{user.username}</h2>
+            
             </div>
-            <h1>My Collection</h1>
+
+            <div>
+            <button className="collection-button" type="button">My Collection</button>
+            <button className="wishlist-button" type="button">Wishlist</button>
+            </div>
             {birdCollection?.map((bird) => {
                 return (
                     <BirdDetail key={bird.id} bird={bird}/>

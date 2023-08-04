@@ -61,7 +61,7 @@ function* deleteBirdCollection(action) {
     console.log('in deleteBirdCollection, action.payload is:', action.payload)
     try {
         yield axios.delete(`/birds/${action.payload.id}`)
-        yield put({ type: 'FETCH_BIRD_COLLECTION', payload: action.userId })
+        yield put({ type: 'FETCH_BIRD_COLLECTION', payload: action.user })
     } catch (err) {
         console.log('Error deleting bird in deleteBirdCollection saga:', err);
     }
