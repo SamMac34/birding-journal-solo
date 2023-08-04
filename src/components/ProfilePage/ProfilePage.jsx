@@ -15,6 +15,7 @@ function ProfilePage() {
     // Load bird collection on page load
     useEffect(() => {
         fetchCollection();
+        // fetchUserProfile();
     }, []);
 
     // Dispatch action to fetch bird collection by user id
@@ -23,7 +24,14 @@ function ProfilePage() {
             type: 'FETCH_BIRD_COLLECTION',
             payload: user.id
         });
-    }
+    };
+
+    const fetchUserProfile = () => {
+        dispatch({
+            type: 'FETCH_USER_PROFILE',
+            payload: user.id
+        });
+    };
 
     // console.log('In Profile, birdCollection is:', birdCollection)
     // console.log('In Profile, user is:', user)
