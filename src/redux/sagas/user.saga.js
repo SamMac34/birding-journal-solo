@@ -24,20 +24,9 @@ function* fetchUser() {
   }
 }
 
-// Worker saga: will be fired on "FETCH_USER_PROFILE" actions
-function* fetchUserProfile() {
-  try {
-    yield axios.get('/')
-  } catch (err) {
-    console.log('Error fetching user profile info:', err);
-  }
-}
-
-
 // Watch function listens for dispatches
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
-  yield takeLatest('FETCH_USER_PROFILE', fetchUserProfile)
 }
 
 export default userSaga;

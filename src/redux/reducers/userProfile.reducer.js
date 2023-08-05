@@ -7,7 +7,7 @@ const userProfileReducer = (state = {}, action) => {
     }
   };
   
-  // user will be on the redux state at:
-  // state.user
+  // TODO - (user will be on the redux state at:
+  // state.user)
   export default userProfileReducer;
   
