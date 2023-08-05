@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { response } from 'express';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // Worker saga: will be fired on "FETCH_USER_PROFILE" actions

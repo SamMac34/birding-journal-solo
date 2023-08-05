@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import searchBirds from './birds.reducer';
-import myCollection from './my.collection.reducer';
+import collection from './collection.reducer';
 import birdToEdit from './birdToEdit.reducer';
 import userProfileReducer from './userProfile.reducer';
 
@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   errors, // Holds registrationMessage and loginMessage
   user, // Holds user id and username if someone is logged in
   searchBirds, // Holds birds returned from API search
-  myCollection, // Holds birds returned from myCollection database
+  collection, // Holds birds returned from myCollection database
   birdToEdit, // Holds data from edit bird from myCollection
   userProfileReducer, // Holds user profile info
 });

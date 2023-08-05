@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './ProfilePage.css'
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import BirdDetail from "../BirdDetail/BirdDetail";
 
 
 function ProfilePage() {
     const dispatch = useDispatch();
-    const history = useHistory();
-    const birdCollection = useSelector(store => store.myCollection);
+    // const history = useHistory();
+    const myCollection = useSelector(store => store.collection);
     const user = useSelector(store => store.user);
 
 
@@ -26,12 +26,13 @@ function ProfilePage() {
         });
     };
 
-    const fetchUserProfile = () => {
-        dispatch({
-            type: 'FETCH_USER_PROFILE',
-            payload: user.id
-        });
-    };
+    // const fetchUserProfile = () => {
+    //     dispatch({
+    //         type: 'FETCH_USER_PROFILE',
+    //         payload: user.id
+    //     });
+    // };
+
 
     // console.log('In Profile, birdCollection is:', birdCollection)
     // console.log('In Profile, user is:', user)
@@ -43,6 +44,8 @@ function ProfilePage() {
             <div id="user-profile">
                 <img src="./images/image-not-available.png"/>
                 <h2>{user.username}</h2>
+                <p>Birds in My Collection:{myCollection.length}</p>
+                <p>Last bird added:{myCollection[0]?.bird_name}</p>
             
             </div>
 
@@ -50,7 +53,7 @@ function ProfilePage() {
             <button className="collection-button" type="button">My Collection</button>
             <button className="wishlist-button" type="button">Wishlist</button>
             </div>
-            {birdCollection?.map((bird) => {
+            {myCollection?.map((bird) => {
                 return (
                     <BirdDetail key={bird.id} bird={bird}/>
                 )

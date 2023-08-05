@@ -1,23 +1,22 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-// Search API for bird by name
+// Search API by bird name
 function* searchBirds(action) {
-    // console.log('In searchBirds saga, action.payload is:', action.payload)
 
     try {
         const response = yield axios.get(`/api/birds/${action.payload}`)
-        console.log('response/data is:', response.data.entities)
+        // console.log('response/data is:', response.data.entities)
         yield put({
             type: 'SET_BIRDS',
             payload: response.data 
     })
-    } catch (err) {
-        console.log('Error in searchBirds saga:', err)
+    } catch (error) {
+        console.log('Error in searchBirds saga:', error)
     }
 };
 
-// Fetch bird collection by user ID
+// Fetch birds in My Collection by user ID
 function* fetchBirdCollection(action) {
     console.log('In fetchBirdCollection saga, action.payload is:', action.payload)
     try {
@@ -27,12 +26,12 @@ function* fetchBirdCollection(action) {
             type: 'SET_COLLECTION',
             payload: response.data
     });
-    } catch (err) {
-        console.log('Error in fetchBirdCollection saga:', err)
+    } catch (error) {
+        console.log('Error in fetchBirdCollection saga:', error)
     }
 };
 
-// Add bird to collection
+// Add bird to My Collection by user ID
 function* addBirdToCollection(action) {
     console.log('In bird saga(addBirdToCollection), action.payload is:', action.payload);
     try {
@@ -43,7 +42,7 @@ function* addBirdToCollection(action) {
     }
 };
 
-// Edit bird in collection
+// Edit bird in My Collection by user ID
 function* editBirdCollection(action) {
 
     try {
@@ -51,19 +50,19 @@ function* editBirdCollection(action) {
         yield axios.put(`/birds/${action.payload.id}`, action.payload);
         yield put({ type: 'FETCH_BIRD_COLLECTION', payload: action.userId })
 
-    } catch (err) {
-        console.log('Error sending edit bird info to server:', err);
+    } catch (error) {
+        console.log('Error sending edit bird info to server:', error);
     }
 };
 
-// Delete bird from collection
+// Delete bird from My Collection by user ID
 function* deleteBirdCollection(action) {
     console.log('in deleteBirdCollection, action.payload is:', action.payload)
     try {
         yield axios.delete(`/birds/${action.payload.id}`)
         yield put({ type: 'FETCH_BIRD_COLLECTION', payload: action.user })
-    } catch (err) {
-        console.log('Error deleting bird in deleteBirdCollection saga:', err);
+    } catch (error) {
+        console.log('Error deleting bird in deleteBirdCollection saga:', error);
     }
 }
 

@@ -48,6 +48,26 @@ router.post('/logout', (req, res) => {
 });
 
 // Fetch user profile information
+// router.get('/profile', rejectUnauthenticated, (req, res) => {
+//   const userId = req.params.id;
+//   const queryText = `SELECT count("id") 
+//      FROM "my_collection" WHERE "user_id" = $1;`;
 
+//     // console.log('userId is:', userId)
+//     // console.log('req.params is:', req.params)
+//     if (req.isAuthenticated()) {
+//         pool.query(queryText, [userId])
+//     .then(response => {
+//         console.log('response is:', response.data);
+//         res.send(response.data);
+//     }).catch((err) => {
+//         console.log('Error fetching profile info:', err);
+//         res.sendStatus(500);
+//     });
+// }
+// else {
+//     res.sendStatus(403);
+// }
+// })
 
 module.exports = router;

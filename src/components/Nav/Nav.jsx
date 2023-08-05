@@ -40,9 +40,6 @@ function Nav() {
               Add Bird<br />to Collection
             </Link>
 
-            <Link className="navLink" to="/editbird">
-            </Link>
-
             <LogOutButton className="navLink" />
           </>
         )}

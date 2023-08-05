@@ -9,7 +9,8 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT "id", "bird_name", "location", "notes", "bird_image", 
     TO_CHAR("time", 'HH12:MI AM') AS "time", TO_CHAR("date", 'DD Mon YYYY') AS "date"
-     FROM "my_collection" WHERE "user_id" = $1;`;
+     FROM "my_collection" WHERE "user_id" = $1
+     ORDER BY "date" DESC, "time" DESC;`;
 
     const userId = req.params.id;
     // console.log('userId is:', userId)
