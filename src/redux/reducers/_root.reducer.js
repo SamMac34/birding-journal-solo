@@ -5,6 +5,7 @@ import searchBirds from './birds.reducer';
 import collection from './collection.reducer';
 import birdToEdit from './birdToEdit.reducer';
 import userProfileReducer from './userProfile.reducer';
+import wishlist from './wishlist.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -16,9 +17,10 @@ const rootReducer = combineReducers({
   errors, // Holds registrationMessage and loginMessage
   user, // Holds user id and username if someone is logged in
   searchBirds, // Holds birds returned from API search
-  collection, // Holds birds returned from myCollection database
-  birdToEdit, // Holds data from edit bird from myCollection
+  collection, // Holds birds returned from myCollection table
+  birdToEdit, // Holds bird info to edit from myCollection state
   userProfileReducer, // Holds user profile info
+  wishlist, // Holds birds returned from myWishlist table
 });
 
 export default rootReducer;
