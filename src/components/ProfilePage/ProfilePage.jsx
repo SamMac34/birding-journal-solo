@@ -20,23 +20,23 @@ function ProfilePage() {
     // Load bird collection on page load
     useEffect(() => {
         fetchCollection();
-        // fetchUserProfile();
+        fetchWishlist();
     }, []);
 
     // Dispatch action to fetch bird collection by user id
     const fetchCollection = () => {
         dispatch({
-            type: 'FETCH_BIRD_COLLECTION',
+            type: 'FETCH_COLLECTION',
             payload: user.id
         });
     };
 
-    // const fetchUserProfile = () => {
-    //     dispatch({
-    //         type: 'FETCH_USER_PROFILE',
-    //         payload: user.id
-    //     });
-    // };
+    const fetchWishlist = () => {
+        dispatch({
+            type: 'FETCH_WISHLIST',
+            payload: user.id
+        });
+    };
 
 
     // console.log('In Profile, birdCollection is:', birdCollection)

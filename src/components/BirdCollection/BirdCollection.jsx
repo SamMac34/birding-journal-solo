@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 // Component to handle individual bird data from ProfilePage
-function BirdDetail(props) {
+function BirdCollection(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(store => store.user);
@@ -19,7 +19,7 @@ function BirdDetail(props) {
     const handleDeleteBirdClick = () => {
         console.log('In BirdDetail(handleDelete) props.bird is:', props.bird)
         dispatch({
-            type: 'DELETE_BIRD',
+            type: 'DELETE_BIRD_COLLECTION',
             payload: props.bird,
             user: user.id
         })
@@ -45,4 +45,4 @@ function BirdDetail(props) {
     )
 };
 
-export default BirdDetail;
+export default BirdCollection;

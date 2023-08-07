@@ -14,3 +14,5 @@ Winged/Feathered/Birding/Chirp/Avian/Flock
 trying to add a bird to collection
 
 3. Add region North America to search sqlQuery
+
+4. Change bird_name to common_name

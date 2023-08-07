@@ -11,7 +11,6 @@ function SearchPage() {
     const user = useSelector(store => store.user);
 
 
-    console.log('in SearchPage, searchBirds is:', birds)
 
     const searchBirds = (event) => {
         event.preventDefault();
@@ -30,7 +29,7 @@ function SearchPage() {
         // })
         // history.push('/addbird');
         dispatch({
-            type: 'ADD_BIRD',
+            type: 'ADD_BIRD_COLLECTION',
             payload: {
                 userId: user.id,
                 bird_name: bird.name,
@@ -40,18 +39,25 @@ function SearchPage() {
                 // notes: observationNotes,
                 image: bird.images[0]
             }        
+        })   
+    };
+
+    const addBirdToWishlist = (bird) => {
+        console.log('In addBirdToWishlist(SearchPage), bird is:', bird);
+        dispatch({
+            type: 'ADD_BIRD_WISHLIST',
+            payload: {
+                userId: user.id,
+                common_name: bird.name,
+                family: bird.family,
+                region: bird.region[0],
+                order: bird.order,
+                sci_name: bird.sciName,
+                image: bird.images[0],
+                status: bird.status,
+            }
         })
-        
     };
-
-    const addBirdToWishlist = () => {
-
-    };
-
-
-
-    // birds={}, birds.entities=[{}]
-    // console.log('in SearchPage, birds.entities is:', birds.entities)
 
     return (
         <section>
@@ -79,6 +85,7 @@ function SearchPage() {
                             />
                             <div className="bird-name">{bird.name}</div>
                             <div className="bird-sci-name">{'('+ bird.sciName + ')'}</div>
+                            {/* Possibly change to bird.region, depending on BirdWishlist view */}
                             <div className="bird-regions">{bird.region[1] ? bird.region[0]+','+bird.region[1] : bird.region[0] }</div>
                             <div className="bird-status">{bird.status}</div>
                             <button className="add-to-collection-btn" type="button" onClick={() => addBirdToCollection(bird)} >Add to Collection</button>
