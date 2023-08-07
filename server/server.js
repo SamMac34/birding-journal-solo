@@ -9,8 +9,8 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const birdRouter = require('./routes/bird.router');
-const birdCollectionRouter = require('./routes/birdcollection.router')
+const apiBirdRouter = require('./routes/apiBird.router');
+const birdRouter = require('./routes/bird.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -25,8 +25,8 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/birds', birdRouter);
-app.use('/birds', birdCollectionRouter);
+app.use('/api/birds', apiBirdRouter);
+app.use('/birds', birdRouter);
 
 // Serve static files
 app.use(express.static('build'));

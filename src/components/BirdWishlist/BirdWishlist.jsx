@@ -18,15 +18,7 @@ function BirdWishlist(props) {
             payload: props.id,
             user: user.id
         })
-        // fetchWishlist;
-    }
-
-    // const fetchWishlist = () => {
-    //     dispatch({
-    //         type: 'FETCH_WISHLIST',
-    //         payload: user.id
-    //     });
-    // };
+    };
 
 
     return (

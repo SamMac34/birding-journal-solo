@@ -12,7 +12,7 @@ function SearchPage() {
 
 
 
-    const searchBirds = (event) => {
+    const searchBirdApi = (event) => {
         event.preventDefault();
         console.log('In searchBirds(SearchPage) bird is:', birdName)
         dispatch({
@@ -62,7 +62,7 @@ function SearchPage() {
     return (
         <section>
             {/* TODO - add label, required */}
-            <form onSubmit={searchBirds}>
+            <form onSubmit={searchBirdApi}>
                 <input
                     type="text"
                     name="bird"
