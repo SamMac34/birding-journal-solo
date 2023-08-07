@@ -112,6 +112,7 @@ input {
   margin-bottom: 10px;
 }
 
-.bird-card {
+.bird-card, .bird-card-collection, .bird-card-wishlist {
   border: 1px solid black;
+  display: flex;
 }

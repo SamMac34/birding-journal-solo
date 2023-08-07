@@ -6,6 +6,7 @@ import collection from './collection.reducer';
 import birdToEdit from './birdToEdit.reducer';
 import userProfileReducer from './userProfile.reducer';
 import wishlist from './wishlist.reducer';
+import birdToAdd from './birdToAdd.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   birdToEdit, // Holds bird info to edit from myCollection state
   userProfileReducer, // Holds user profile info
   wishlist, // Holds birds returned from myWishlist table
+  birdToAdd, // Holds bird info to add to myCollection state
 });
 
 export default rootReducer;

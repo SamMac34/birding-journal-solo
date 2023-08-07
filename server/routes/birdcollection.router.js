@@ -31,6 +31,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 // Add bird to my_collection table
 router.post('/', rejectUnauthenticated, (req, res) => {
     const newBird = req.body;
+    console.log('in POST, req.body is:', req.body, req.body.date)
     const queryText = `INSERT INTO "my_collection" (user_id, bird_name, location, date, time, notes, bird_image)
         VALUES ($1, $2, $3, $4, $5, $6, $7);`;
 

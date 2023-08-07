@@ -12,7 +12,7 @@ router.get('/:birdName', rejectUnauthenticated, (req, res) => {
 
     if (req.isAuthenticated()) {
         axios.get(
-            `https://nuthatch.lastelm.software/v2/birds?page=1&pageSize=5&operator=AND&name=${query}`,
+            `https://nuthatch.lastelm.software/v2/birds?page=1&operator=AND&name=${query}`,
             { headers: {'API-Key': key, 'accept': 'application/json'} })
         .then(response => {
             console.log('response is:', response.data);

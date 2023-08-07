@@ -6,8 +6,8 @@ import { useHistory } from "react-router-dom";
 function AddBirdForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const user = useSelector(store => store.user)
-    // const bird = useSelector(store => store.bird)
+    const user = useSelector(store => store.user);
+    const bird = useSelector(store => store.birdToAdd);
 
     const [birdName, setBirdName] = useState('');
     const [observationLocation, setObservationLocation] = useState('');
@@ -16,9 +16,28 @@ function AddBirdForm() {
     const [observationNotes, setObservationNotes] = useState('');
     const [birdImage, setBirdImage] = useState('');
 
-    
+
+    console.log('in AddBirdForm, bird is:', bird)
+    // console.log('history is:', history.location)
+
+
+
     // Dispatch ADD_BIRD action
-    const handleBirdInfo = () => {
+    const handleBirdInfo = (event) => {
+        event.preventDefault();
+        // if (observationDate === '') {
+        //     console.log('in IF statement')
+        //     // If no date entered, set observationDate to current date.
+        //     const date = new Date();
+        //     const year = date.getFullYear();
+        //     const month = String(date.getMonth() + 1).padStart(2, '0');
+        //     const day = String(date.getDate()).padStart(2, '0');
+        //     // Format the date as "yyyy-MM-dd"
+        //     const formattedDate = `${year}-${month}-${day}`;
+        //     setObservationDate(formattedDate);
+        // };
+        // console.log('formattedDate is:', formattedDate);
+        // console.log('observationDate is:', observationDate);
         dispatch({
             type: 'ADD_BIRD',
             payload: {
@@ -31,28 +50,28 @@ function AddBirdForm() {
                 image: birdImage
             }
         })
-        history.push('/profile');
+        // history.push('/profile');
     };
 
     // Return user to previous page if AddBird is cancelled
     const cancelAddBird = () => {
-        history.push('/profile')
+        // history.push('/profile')
     };
 
     // TODO - make sure inputs have required/value/
     return (
         <form onSubmit={handleBirdInfo}>
 
-        <h1>Add a bird to your Collection!</h1>
+            <h1>Add a bird to your Collection!</h1>
 
-        <input value={birdName} type="text" placeholder="Bird Name" onChange={e => {setBirdName(e.target.value)}} required />
-        <input value={observationLocation} type="text" placeholder="Location" onChange={e => {setObservationLocation(e.target.value)}} />
-        <input value={observationDate} type="date" placeholder="Date" onChange={e => {setObservationDate(e.target.value)}} />
-        <input value={observationTime} type="time" placeholder="Time" onChange={e => {setObservationTime(e.target.value)}} />
-        <input value={observationNotes} type="text" placeholder="Notes" onChange={e => {setObservationNotes(e.target.value)}} />
-        <input value={birdImage} type="text" placeholder="Add Image" onChange={e => {setBirdImage(e.target.value)}} />
-        <button onClick={cancelAddBird} type="button" >Cancel Add Bird</button>
-        <button type="submit">Add Bird</button>
+            <input value={bird.name} type="text" placeholder="Bird Name" onChange={e => { setBirdName(e.target.value) }} required />
+            <input value={observationLocation} type="text" placeholder="Location" onChange={e => { setObservationLocation(e.target.value) }} />
+            <input value={observationDate} type="date" placeholder="Date" onChange={e => { setObservationDate(e.target.value) }} />
+            <input value={observationTime} type="time" placeholder="Time" onChange={e => { setObservationTime(e.target.value) }} />
+            <input value={observationNotes} type="text" placeholder="Notes" onChange={e => { setObservationNotes(e.target.value) }} />
+            <input value={birdImage} type="text" placeholder="Add Image" onChange={e => { setBirdImage(e.target.value) }} />
+            <button onClick={() => cancelAddBird()} type="button" >Cancel Add Bird</button>
+            <button type="submit">Add Bird</button>
 
         </form>
 

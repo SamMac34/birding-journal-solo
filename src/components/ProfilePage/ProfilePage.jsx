@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './ProfilePage.css'
 // import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import BirdCollectionDetail from "../BirdCollectionDetail/BirdCollectionDetail";
+import BirdCollection from "../BirdCollection/BirdCollection";
+import BirdWishlist from "../BirdWishlist/BirdWishlist";
 
 
 function ProfilePage() {
@@ -62,19 +63,18 @@ function ProfilePage() {
                 <div>
                     {birdCollection?.map((bird) => {
                         return (
-                            <BirdCollectionDetail key={bird.id} bird={bird} />
+                            <BirdCollection key={bird.id} bird={bird} />
                         )
                     })}
                 </div>
                 :
-                <div>show wishlist</div>
-                // <div>
-                //     {birdWishlist?.map((bird) => {
-                //         return (
-                //             <BirdWishlistDetail key={bird.id} bird={bird} />
-                //         )
-                //     })}
-                // </div>
+                <div>
+                    {birdWishlist?.map((bird) => {
+                        return (
+                            <BirdWishlist key={bird.id} bird={bird} />
+                        )
+                    })}
+                </div>
             }
         </>
     )
