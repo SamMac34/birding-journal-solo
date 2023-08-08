@@ -51,6 +51,8 @@ function ProfilePage() {
                 <img src="./images/image-not-available.png" />
                 <h2>{user.username}</h2>
                 <p>Birds in My Collection:{birdCollection.length}</p>
+                <p>Birds in My Wishlist:{birdWishlist.length}</p>
+
                 <p>Last bird added to Collection:{birdCollection[0]?.bird_name}</p>
             </div>
 
