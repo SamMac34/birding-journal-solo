@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 // Add Bird to 'My Collection'
 function AddBirdForm() {
@@ -17,14 +17,15 @@ function AddBirdForm() {
     const [birdImage, setBirdImage] = useState('');
 
 
-    console.log('in AddBirdForm, bird is:', bird)
+    // console.log('in AddBirdForm, bird is:', bird)
     // console.log('history is:', history.location)
 
 
 
     // Dispatch ADD_BIRD action
-    const handleBirdInfo = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
+        console.log('Image is:', birdImage)
         // if (observationDate === '') {
         //     console.log('in IF statement')
         //     // If no date entered, set observationDate to current date.
@@ -39,7 +40,7 @@ function AddBirdForm() {
         // console.log('formattedDate is:', formattedDate);
         // console.log('observationDate is:', observationDate);
         dispatch({
-            type: 'ADD_BIRD',
+            type: 'ADD_BIRD_COLLECTION',
             payload: {
                 userId: user.id,
                 bird_name: birdName,
@@ -55,12 +56,13 @@ function AddBirdForm() {
 
     // Return user to previous page if AddBird is cancelled
     const cancelAddBird = () => {
-        // history.push('/profile')
+        history.push('/profile')
     };
+
 
     // TODO - make sure inputs have required/value/
     return (
-        <form onSubmit={handleBirdInfo}>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
 
             <h1>Add a bird to your Collection!</h1>
 
@@ -69,7 +71,7 @@ function AddBirdForm() {
             <input value={observationDate} type="date" placeholder="Date" onChange={e => { setObservationDate(e.target.value) }} />
             <input value={observationTime} type="time" placeholder="Time" onChange={e => { setObservationTime(e.target.value) }} />
             <input value={observationNotes} type="text" placeholder="Notes" onChange={e => { setObservationNotes(e.target.value) }} />
-            <input value={birdImage} type="text" placeholder="Add Image" onChange={e => { setBirdImage(e.target.value) }} />
+            <input  type="file" placeholder="Add Image" name="image" onChange={e => { setBirdImage(e.target.files[0]) }} />
             <button onClick={() => cancelAddBird()} type="button" >Cancel Add Bird</button>
             <button type="submit">Add Bird</button>
 

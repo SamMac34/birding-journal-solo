@@ -3,6 +3,10 @@ const router = express.Router();
 const pool = require('../modules/pool');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
+const multer = require('multer');
+const upload = multer({ dest: './public/images'});
+
+const app = express();
 
 // Fetch all birds from my_collection table
 router.get('/:id', rejectUnauthenticated, (req, res) => {
@@ -27,8 +31,19 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 // Add bird to my_collection table
 router.post('/', rejectUnauthenticated, (req, res) => {
+
+    console.log('in POST, req.body is:', req.body.image)
+
+
+    app.post('/uploadFile', upload.single('image'), (req, res) => {
+        // Detect and attach correct file extension
+        let fileType = req.file.mimetype.split('/')[1]
+        let newFileName = req.file.filename + "." + fileType
+        console.log('newFileName is:', newFileName);
+          res.send("200")
+      })
+
     const newBird = req.body;
-    console.log('in POST, req.body is:', req.body, req.body.date)
     const queryText = `INSERT INTO "my_collection" ("user_id", "bird_name", "location", "date", "time", "notes", "bird_image")
         VALUES ($1, $2, $3, $4, $5, $6, $7);`;
 

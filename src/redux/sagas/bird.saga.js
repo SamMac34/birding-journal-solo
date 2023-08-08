@@ -21,7 +21,7 @@ function* fetchCollection(action) {
     console.log('In fetchBirdCollection saga, action.payload is:', action.payload)
     try {
         const response = yield axios.get(`/birds/${action.payload}`)
-        console.log('response.data is:', response.data)
+        console.log('response.data.image is:', response.data.image)
         yield put({
             type: 'SET_COLLECTION',
             payload: response.data
