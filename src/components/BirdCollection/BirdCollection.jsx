@@ -25,12 +25,12 @@ function BirdCollection(props) {
         })
     }
 
-    console.log('props.bird_image is:', props, props.bird_image);
+    console.log('props.bird_image is:', props.bird.bird_image);
 
     return (
         <div className="bird-card-collection">
             <img
-                src={props.bird_image ? props.bird_image
+                src={props.bird.bird_image ? props.bird.bird_image
                     :
                     "./images/image-not-available.png"}
             />

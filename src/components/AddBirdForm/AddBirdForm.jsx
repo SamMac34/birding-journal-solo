@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -7,23 +7,40 @@ function AddBirdForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(store => store.user);
-    const bird = useSelector(store => store.birdToAdd);
+    const birdToAdd = useSelector(store => store.birdToAdd);
+
 
     const [birdName, setBirdName] = useState('');
     const [observationLocation, setObservationLocation] = useState('');
     const [observationDate, setObservationDate] = useState('');
     const [observationTime, setObservationTime] = useState('');
     const [observationNotes, setObservationNotes] = useState('');
-    const [birdImage, setBirdImage] = useState({});
+    const [birdImage, setBirdImage] = useState('');
+    // const [birdImage, setBirdImage] = useState("./images/image-not-available.png");
 
+    // Handle bird info incoming from SearchPage
+    // useEffect(() => {
+    //     // console.log( 'In useEffect, birdToAdd.common_name is:', birdToAdd.common_name)
+    //     if (birdToAdd.common_name) {
+    //         fillInputs();
+    //     }
+    // }, []);
 
-    // Dispatch ADD_BIRD action
+    // console.log( 'birdToAdd.common_name is:', birdToAdd.common_name)
+    // console.log( 'birdToAdd.name is:', birdToAdd.name)
+
+    // const fillInputs = () => {
+    //     setBirdName(birdToAdd.common_name)
+    // }
+
+    // Handle data submit and dispatch ADD_BIRD action
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Image is:', birdImage)
+        console.log('birdImage is:', birdImage)
 
         let currentDate = observationDate
         let currentTime = observationTime
+        let defaultImage = birdImage
 
         // If no date entered, set observationDate to current date.
         if (observationDate === '') {
@@ -50,30 +67,52 @@ function AddBirdForm() {
             currentTime = formattedTime;
             // console.log()
         };
-        // console.log('formattedDate is:', formattedDate);
-        // console.log('observationDate is:', observationDate);
 
+        if (birdImage) {
+        // Create Form object and append observation data
         let formData = new FormData();
-        formData.append('common_name', birdName)
-        formData.append('date', currentDate)
-        formData.append('time', currentTime)
-        formData.append('userId', user.id)
-        formData.append('location', observationLocation)
-        formData.append('notes', observationNotes)
-        formData.append('image', birdImage)
+        formData.append('common_name', birdName);
+        formData.append('date', currentDate);
+        formData.append('time', currentTime);
+        formData.append('userId', user.id);
+        formData.append('location', observationLocation);
+        formData.append('notes', observationNotes);
+        formData.append('image', birdImage);
+
+        // Dispatch to Saga with image
+        dispatch({
+            type: 'ADD_BIRD_COLLECTION_IMAGE',
+            payload: formData
+        });
+        }
+        else {
+        // Dispatch to Saga with no image
+        dispatch({
+            type: 'ADD_BIRD_COLLECTION_NOIMAGE',
+            payload: {
+                userId: user.id,
+                common_name: birdName,
+                location: observationLocation,
+                date: currentDate,
+                time: currentTime,
+                notes: observationNotes
+            }
+        });
+        }
 
         dispatch({
-            type: 'ADD_BIRD_COLLECTION',
-            payload: formData
-        })
+            type: 'CLEAR_ADD_BIRD',
+        });
         // history.push('/profile');
     };
 
-    // Return user to previous page if AddBird is cancelled
+    // If AddBird is cancelled, clear birdToAdd reducer and return user to ProfilePage 
     const cancelAddBird = () => {
-        history.push('/profile')
+        dispatch({
+            type: 'CLEAR_ADD_BIRD',
+        });
+        history.push('/profile');
     };
-
 
     // TODO - make sure inputs have required/value/
     return (
@@ -81,7 +120,7 @@ function AddBirdForm() {
 
             <h1>Add a bird to your Collection!</h1>
 
-            <input value={bird.name} type="text" placeholder="Bird Name" onChange={e => { setBirdName(e.target.value) }} required />
+            <input value={birdName} type="text" placeholder="Bird Name" onChange={e => { setBirdName(e.target.value) }} required />
             <input value={observationLocation} type="text" placeholder="Location" onChange={e => { setObservationLocation(e.target.value) }} />
             <input value={observationDate} type="date" placeholder="Date" onChange={e => { setObservationDate(e.target.value) }} />
             <input value={observationTime} type="time" placeholder="Time" onChange={e => { setObservationTime(e.target.value) }} />

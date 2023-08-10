@@ -22,14 +22,10 @@ function SearchPage() {
     };
 
     const addBirdToCollection = (bird) => {
-        console.log('in SearchPage, bird is:', bird);
-        // dispatch({
-        //     type: 'SET_ADD_BIRD',
-        //     payload: bird
-        // })
-        // history.push('/addbird');
+        console.log('In SearchPage, bird is:', bird);
+
         dispatch({
-            type: 'ADD_BIRD_COLLECTION',
+            type: 'SET_ADD_BIRD',
             payload: {
                 userId: user.id,
                 common_name: bird.name,
@@ -37,9 +33,11 @@ function SearchPage() {
                 // date: observationDate,
                 // time: observationTime,
                 // notes: observationNotes,
-                image: bird.images[0]
+                image: bird.images[0] 
             }        
-        })   
+        });
+        history.push('/addbird');
+
     };
 
     const addBirdToWishlist = (bird) => {

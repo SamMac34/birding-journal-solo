@@ -1,5 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import { response } from 'express';
 
 // Search API by bird name
 function* searchBirds(action) {
@@ -31,28 +32,29 @@ function* fetchCollection(action) {
     }
 };
 
-// Add bird to My Collection by user ID
-function* addBirdToCollection(action) {
-    console.log('In addBirdToCollection, action.payload is:', action.payload);
+// Add bird to My Collection (with user image)
+function* addBirdToCollectionHasImage(action) {
+    // console.log('In addBirdToCollection, action.payload is:', action.payload.userId);
     try {
-    
-        // yield axios.post('/birds', action.payload);
-        yield axios.post('/birds/collection', action.payload)
+        yield axios.post('/birds/collectionWithImage', action.payload)
         // yield put({ type: 'FETCH_COLLECTION', payload: action.payload.userId})
     } catch (error) {
-        console.log('Error Adding bird to Collection', error);
+        console.log('Error Adding bird to Collection(image)', error);
     }
 };
 
-// function* addBirdImageToCollection(action) {
-//     console.log('In bird saga(addBirdImageToCollection), action.payload is:', action.payload);
 
-//     try {
-//         yield axios.post('/birds/uploadFile', action.payload)
-//     } catch (error) {
+function* addBirdToCollectionNoImage(action) {
+    console.log('In bird saga(addBirdImageToCollection), action.payload is:', action.payload);
 
-//     }
-// }
+    try {
+        yield axios.post('/birds/collection', action.payload)
+        yield put({ type: 'FETCH_COLLECTION', payload: action.payload.userId})
+
+    } catch (error) {
+        console.log('Error Adding bird to Collection(no image)', error);
+    }
+}
 
 // Edit bird in My Collection by user ID
 function* editBirdCollection(action) {
@@ -67,7 +69,7 @@ function* editBirdCollection(action) {
     }
 };
 
-// Delete bird from Collection by user ID
+// Delete bird from my collection by user ID
 function* deleteBirdCollection(action) {
     console.log('in deleteBirdCollection, action.payload is:', action.payload)
     try {
@@ -125,8 +127,8 @@ function* birdSaga() {
     yield takeLatest('ADD_BIRD_WISHLIST', addBirdToWishlist );
     yield takeLatest('FETCH_WISHLIST', fetchWishlist);
     yield takeLatest('DELETE_BIRD_WISHLIST', deleteBirdWishlist);
-    // yield takeLatest('ADD_BIRD_IMAGE_COLLECTION', addBirdImageToCollection);
-    yield takeLatest('ADD_BIRD_COLLECTION', addBirdToCollection);
+    yield takeLatest('ADD_BIRD_COLLECTION_NOIMAGE', addBirdToCollectionNoImage);
+    yield takeLatest('ADD_BIRD_COLLECTION_IMAGE', addBirdToCollectionHasImage);
 
 };
 

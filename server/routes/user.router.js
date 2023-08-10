@@ -53,8 +53,6 @@ router.post('/logout', (req, res) => {
 //   const queryText = `SELECT count("id") 
 //      FROM "my_collection" WHERE "user_id" = $1;`;
 
-//     // console.log('userId is:', userId)
-//     // console.log('req.params is:', req.params)
 //     if (req.isAuthenticated()) {
 //         pool.query(queryText, [userId])
 //     .then(response => {

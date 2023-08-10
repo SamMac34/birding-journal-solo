@@ -20,3 +20,8 @@ trying to add a bird to collection
 5. Change image input for Edit Bird
 
 6. Alert for Add/edit
+
+7. Add hidden buttons to populate fields, passwords, etc
+
+8. Add dependencies
+npm install multer

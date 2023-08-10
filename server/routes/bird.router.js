@@ -18,19 +18,19 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-// Add bird to my_collection table
-router.post('/collection', upload.single('image'), rejectUnauthenticated, (req, res) => {
+
+// Add bird to my_collection table (with Image)
+router.post('/collectionWithImage', upload.single('image'), rejectUnauthenticated, (req, res) => {
     console.log('req.file is:', req.file);
-    console.log('req.file.path is:', req.file);
-    console.log('req.body is:', req.body.common_name);
-    const imageUrl = req.file
+    // console.log('req.file.filename is:', req.file.filename);
+    console.log('req.body is:', req.body);
+    const imageUrl = './images/' + req.file.filename
     const newBird = req.body;
     const queryText = `INSERT INTO "my_collection" ("user_id", "common_name", "location", "date", "time", "notes", "bird_image")
-      VALUES ($1, $2, $3, $4, $5, $6, $7);`;
+      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING user_id;`;
 
     if (req.isAuthenticated()) {
-        pool
-            .query(queryText, [newBird.userId, newBird.common_name, newBird.location, newBird.date, newBird.time, newBird.notes, imageUrl])
+        pool.query(queryText, [newBird.userId, newBird.common_name, newBird.location, newBird.date, newBird.time, newBird.notes, imageUrl])
             .then(() => res.sendStatus(201))
             .catch((error) => {
                 console.log('Error adding bird to "my_collection" table:', error);
@@ -40,7 +40,28 @@ router.post('/collection', upload.single('image'), rejectUnauthenticated, (req, 
     else {
         res.sendStatus(403);
     }
-})
+});
+
+// Add bird to my_collection table (no image)
+router.post('/collection', rejectUnauthenticated, (req, res) => {
+    console.log('req.body is:', req.body);
+    const imageUrl = "./images/image-not-available.png"
+    const newBird = req.body;
+    const queryText = `INSERT INTO "my_collection" ("user_id", "common_name", "location", "date", "time", "notes", "bird_image")
+      VALUES ($1, $2, $3, $4, $5, $6, $7);`;
+
+    if (req.isAuthenticated()) {
+        pool.query(queryText, [newBird.userId, newBird.common_name, newBird.location, newBird.date, newBird.time, newBird.notes, imageUrl])
+            .then(() => res.sendStatus(201))
+            .catch((error) => {
+                console.log('Error adding bird to "my_collection" table:', error);
+                res.sendStatus(500);
+            });
+    }
+    else {
+        res.sendStatus(403);
+    }
+});
 
 // Fetch all birds from my_collection table
 router.get('/:id', rejectUnauthenticated, (req, res) => {
