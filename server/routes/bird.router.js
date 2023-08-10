@@ -5,41 +5,41 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-      cb(null, './public/images/')
-  },
-  filename: function (req, file, cb) {
-    // console.log('file is:', file)
-    let fileType = file.mimetype.split('/')[1]
-    // console.log('fileType is:', fileType)
-      cb(null, file.originalname + '.' + fileType)
-}
+    destination: function (req, file, cb) {
+        cb(null, './public/images/')
+    },
+    filename: function (req, file, cb) {
+        // console.log('file is:', file)
+        let fileType = file.mimetype.split('/')[1]
+        // console.log('fileType is:', fileType)
+        cb(null, file.originalname + '.' + fileType)
+    }
 });
 
 const upload = multer({ storage: storage })
 
 // Add bird to my_collection table
 router.post('/collection', upload.single('image'), rejectUnauthenticated, (req, res) => {
-  console.log('req.file is:', req.file);
-  console.log('req.file.path is:', req.file.path);
-  console.log('req.body is:', req.body.common_name);
-  const imageUrl = req.file.path
-  const newBird = req.body;
-  const queryText = `INSERT INTO "my_collection" ("user_id", "common_name", "location", "date", "time", "notes", "bird_image")
+    console.log('req.file is:', req.file);
+    console.log('req.file.path is:', req.file);
+    console.log('req.body is:', req.body.common_name);
+    const imageUrl = req.file
+    const newBird = req.body;
+    const queryText = `INSERT INTO "my_collection" ("user_id", "common_name", "location", "date", "time", "notes", "bird_image")
       VALUES ($1, $2, $3, $4, $5, $6, $7);`;
 
-  if (req.isAuthenticated()) {
-      pool
-          .query(queryText, [newBird.userId, newBird.common_name, newBird.location, newBird.date, newBird.time, newBird.notes, imageUrl])
-          .then(() => res.sendStatus(201))
-          .catch((error) => {
-              console.log('Error adding bird to "my_collection" table:', error);
-              res.sendStatus(500);
-          });
-  }
-  else {
-      res.sendStatus(403);
-  }
+    if (req.isAuthenticated()) {
+        pool
+            .query(queryText, [newBird.userId, newBird.common_name, newBird.location, newBird.date, newBird.time, newBird.notes, imageUrl])
+            .then(() => res.sendStatus(201))
+            .catch((error) => {
+                console.log('Error adding bird to "my_collection" table:', error);
+                res.sendStatus(500);
+            });
+    }
+    else {
+        res.sendStatus(403);
+    }
 })
 
 // Fetch all birds from my_collection table
