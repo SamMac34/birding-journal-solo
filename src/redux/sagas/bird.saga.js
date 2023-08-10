@@ -21,7 +21,7 @@ function* fetchCollection(action) {
     console.log('In fetchBirdCollection saga, action.payload is:', action.payload)
     try {
         const response = yield axios.get(`/birds/${action.payload}`)
-        console.log('response.data.image is:', response.data.image)
+        // console.log('response.data.image is:', response.data.image)
         yield put({
             type: 'SET_COLLECTION',
             payload: response.data
@@ -33,14 +33,26 @@ function* fetchCollection(action) {
 
 // Add bird to My Collection by user ID
 function* addBirdToCollection(action) {
-    console.log('In bird saga(addBirdToCollection), action.payload is:', action.payload);
+    console.log('In addBirdToCollection, action.payload is:', action.payload);
     try {
-        yield axios.post(`/birds`, action.payload);
-        yield put({ type: 'FETCH_COLLECTION', payload: action.payload.userId })
+    
+        // yield axios.post('/birds', action.payload);
+        yield axios.post('/birds/collection', action.payload)
+        // yield put({ type: 'FETCH_COLLECTION', payload: action.payload.userId})
     } catch (error) {
         console.log('Error Adding bird to Collection', error);
     }
 };
+
+// function* addBirdImageToCollection(action) {
+//     console.log('In bird saga(addBirdImageToCollection), action.payload is:', action.payload);
+
+//     try {
+//         yield axios.post('/birds/uploadFile', action.payload)
+//     } catch (error) {
+
+//     }
+// }
 
 // Edit bird in My Collection by user ID
 function* editBirdCollection(action) {
@@ -107,13 +119,15 @@ function* deleteBirdWishlist(action) {
 // Watcher saga
 function* birdSaga() {
     yield takeLatest('SEARCH_BIRDS', searchBirds);
-    yield takeLatest('ADD_BIRD_COLLECTION', addBirdToCollection);
     yield takeLatest('FETCH_COLLECTION', fetchCollection);
     yield takeLatest('SUBMIT_EDIT_BIRD', editBirdCollection);
     yield takeLatest('DELETE_BIRD_COLLECTION', deleteBirdCollection);
     yield takeLatest('ADD_BIRD_WISHLIST', addBirdToWishlist );
     yield takeLatest('FETCH_WISHLIST', fetchWishlist);
-    yield takeLatest('DELETE_BIRD_WISHLIST', deleteBirdWishlist)
+    yield takeLatest('DELETE_BIRD_WISHLIST', deleteBirdWishlist);
+    // yield takeLatest('ADD_BIRD_IMAGE_COLLECTION', addBirdImageToCollection);
+    yield takeLatest('ADD_BIRD_COLLECTION', addBirdToCollection);
+
 };
 
 export default birdSaga;

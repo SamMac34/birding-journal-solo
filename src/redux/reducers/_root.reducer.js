@@ -4,7 +4,6 @@ import user from './user.reducer';
 import searchBirds from './birds.reducer';
 import collection from './collection.reducer';
 import birdToEdit from './birdToEdit.reducer';
-import userProfileReducer from './userProfile.reducer';
 import wishlist from './wishlist.reducer';
 import birdToAdd from './birdToAdd.reducer';
 
@@ -20,7 +19,6 @@ const rootReducer = combineReducers({
   searchBirds, // Holds birds returned from API search
   collection, // Holds birds returned from myCollection table
   birdToEdit, // Holds bird info to edit from myCollection state
-  userProfileReducer, // Holds user profile info
   wishlist, // Holds birds returned from myWishlist table
   birdToAdd, // Holds bird info to add to myCollection state
 });

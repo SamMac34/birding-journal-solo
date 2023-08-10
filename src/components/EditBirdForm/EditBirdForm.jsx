@@ -45,12 +45,12 @@ function EditBirdForm() {
 
         <h1>Edit bird in your Collection!</h1>
 
-        <input value={birdToEdit.bird_name} type="text" placeholder="Bird Name" onChange={event => handleChange(event, 'bird_name')} />
-        <input value={birdToEdit.location} type="text" placeholder="Location" onChange={event => handleChange(event, 'location')} />
-        <input value={birdToEdit.date} type="date" placeholder="Date" onChange={event => handleChange(event, 'date')} />
-        <input value={birdToEdit.time} type="time" placeholder="Time" onChange={event => handleChange(event, 'time')} />
-        <input value={birdToEdit.notes} type="text" placeholder="Notes" onChange={event => handleChange(event, 'notes')} />
-        <input value={birdToEdit.bird_image} type="text" placeholder="Add Image" onChange={event => handleChange(event, 'bird_image')} />
+        <input value={birdToEdit.common_name ?? ''} type="text" placeholder="Bird Name" onChange={event => handleChange(event, 'common_name')} />
+        <input value={birdToEdit.location ?? ''} type="text" placeholder="Location" onChange={event => handleChange(event, 'location')} />
+        <input value={birdToEdit.date ?? ''} type="date" placeholder="Date" onChange={event => handleChange(event, 'date')} />
+        <input value={birdToEdit.time ?? ''} type="time" placeholder="Time" onChange={event => handleChange(event, 'time')} />
+        <input value={birdToEdit.notes ?? ''} type="text" placeholder="Notes" onChange={event => handleChange(event, 'notes')} />
+        <input value={birdToEdit.bird_image ?? ''} type="text" placeholder="Add Image" onChange={event => handleChange(event, 'bird_image')} />
 
         <button onClick={cancelEditBird} type="button" >Cancel Edit Bird</button>
         <button type="submit">Edit Bird</button>

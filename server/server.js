@@ -1,22 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-const multer = require('multer');
-const upload = multer({ dest: './public/images'});
-
 
 const app = express();
 
-app.post('/uploadFile', upload.single('image'), (req, res) => {
+// app.post('/uploadFile', upload.single('image'), (req, res) => {
 
-  // Detect and attach correct file extension
-  let fileType = req.file.mimetype.split('/')[1]
-  let newFileName = req.file.filename + "." + fileType
-  console.log('newFileName is:', newFileName);
-    res.send("200")
-})
+//   console.log('req.file is:', req.file)
+//   // // Detect and attach correct file extension
+//   // let fileType = req.file.mimetype.split('/')[1]
+//   // let newFileName = req.file.filename + "." + fileType
 
-
+//   // console.log('newFileName is:', newFileName);
+//   // fs.rename(`./images/${req.file.filename}`, newFileName ,(error) => {
+//   //   console.log('Error renaming file:', error),
+//     res.sendStatus(200)
+//   // })
+// })
 
 
 const sessionMiddleware = require('./modules/session-middleware');

@@ -15,4 +15,8 @@ trying to add a bird to collection
 
 3. Add region North America to search sqlQuery
 
-4. Change bird_name to common_name
+4. Change common_name to common_name
+
+5. Change image input for Edit Bird
+
+6. Alert for Add/edit

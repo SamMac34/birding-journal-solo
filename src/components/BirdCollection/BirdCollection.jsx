@@ -25,6 +25,7 @@ function BirdCollection(props) {
         })
     }
 
+    console.log('props.bird_image is:', props, props.bird_image);
 
     return (
         <div className="bird-card-collection">
@@ -33,7 +34,7 @@ function BirdCollection(props) {
                     :
                     "./images/image-not-available.png"}
             />
-            <div className="bird-name">{props.bird.bird_name}</div>
+            <div className="bird-name">{props.bird.common_name}</div>
             <div>Bird ID is: {props.bird.id}</div>
             <div >Observation Location: {props.bird.location}</div>
             <div >Notes: {props.bird.notes}</div>

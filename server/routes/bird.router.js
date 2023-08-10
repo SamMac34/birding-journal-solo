@@ -2,16 +2,51 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-
 const multer = require('multer');
-const upload = multer({ dest: './public/images'});
 
-const app = express();
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+      cb(null, './public/images/')
+  },
+  filename: function (req, file, cb) {
+    // console.log('file is:', file)
+    let fileType = file.mimetype.split('/')[1]
+    // console.log('fileType is:', fileType)
+      cb(null, file.originalname + '.' + fileType)
+}
+});
+
+const upload = multer({ storage: storage })
+
+// Add bird to my_collection table
+router.post('/collection', upload.single('image'), rejectUnauthenticated, (req, res) => {
+  console.log('req.file is:', req.file);
+  console.log('req.file.path is:', req.file.path);
+  console.log('req.body is:', req.body.common_name);
+  const imageUrl = req.file.path
+  const newBird = req.body;
+  const queryText = `INSERT INTO "my_collection" ("user_id", "common_name", "location", "date", "time", "notes", "bird_image")
+      VALUES ($1, $2, $3, $4, $5, $6, $7);`;
+
+  if (req.isAuthenticated()) {
+      pool
+          .query(queryText, [newBird.userId, newBird.common_name, newBird.location, newBird.date, newBird.time, newBird.notes, imageUrl])
+          .then(() => res.sendStatus(201))
+          .catch((error) => {
+              console.log('Error adding bird to "my_collection" table:', error);
+              res.sendStatus(500);
+          });
+  }
+  else {
+      res.sendStatus(403);
+  }
+})
 
 // Fetch all birds from my_collection table
 router.get('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('req.params is:', req.params)
     const userId = req.params.id;
-    const queryText = `SELECT "id", "bird_name", "location", "notes", "bird_image", 
+    const queryText = `SELECT "id", "common_name", "location", "notes", "bird_image", 
     TO_CHAR("time", 'HH12:MI AM') AS "time", TO_CHAR("date", 'DD Mon YYYY') AS "date"
      FROM "my_collection" WHERE "user_id" = $1
      ORDER BY "date" DESC, "time" DESC;`;
@@ -29,27 +64,16 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     }
 });
 
-// Add bird to my_collection table
+// Add bird to my_collection table - TODO -Delete when other post rte done
 router.post('/', rejectUnauthenticated, (req, res) => {
 
-    console.log('in POST, req.body is:', req.body.image)
-
-
-    app.post('/uploadFile', upload.single('image'), (req, res) => {
-        // Detect and attach correct file extension
-        let fileType = req.file.mimetype.split('/')[1]
-        let newFileName = req.file.filename + "." + fileType
-        console.log('newFileName is:', newFileName);
-          res.send("200")
-      })
-
     const newBird = req.body;
-    const queryText = `INSERT INTO "my_collection" ("user_id", "bird_name", "location", "date", "time", "notes", "bird_image")
+    const queryText = `INSERT INTO "my_collection" ("user_id", "common_name", "location", "date", "time", "notes", "bird_image")
         VALUES ($1, $2, $3, $4, $5, $6, $7);`;
 
     if (req.isAuthenticated()) {
         pool
-            .query(queryText, [newBird.userId, newBird.bird_name, newBird.location, newBird.date, newBird.time, newBird.notes, newBird.image])
+            .query(queryText, [newBird.userId, newBird.common_name, newBird.location, newBird.date, newBird.time, newBird.notes, newBird.image])
             .then(() => res.sendStatus(201))
             .catch((error) => {
                 console.log('Error adding bird to "my_collection" table:', error);
@@ -65,11 +89,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     const idToUpdate = req.params.id;
     const editBird = req.body;
-    const queryText = `UPDATE "my_collection" SET bird_name = $1, location = $2, date = $3, time = $4, notes = $5, bird_image = $6 WHERE "id" = $7;`;
+    const queryText = `UPDATE "my_collection" SET common_name = $1, location = $2, date = $3, time = $4, notes = $5, bird_image = $6 WHERE "id" = $7;`;
 
     if (req.isAuthenticated()) {
         pool
-            .query(queryText, [editBird.bird_name, editBird.location, editBird.date, editBird.time, editBird.notes, editBird.image, idToUpdate])
+            .query(queryText, [editBird.common_name, editBird.location, editBird.date, editBird.time, editBird.notes, editBird.image, idToUpdate])
             .then(() => res.sendStatus(200))
             .catch((error) => {
                 console.log('Error editing bird in "my_collection" table:', error);

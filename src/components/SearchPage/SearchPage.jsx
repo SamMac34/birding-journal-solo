@@ -32,7 +32,7 @@ function SearchPage() {
             type: 'ADD_BIRD_COLLECTION',
             payload: {
                 userId: user.id,
-                bird_name: bird.name,
+                common_name: bird.name,
                 // location: observationLocation,
                 // date: observationDate,
                 // time: observationTime,

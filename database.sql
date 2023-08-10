@@ -12,7 +12,7 @@ CREATE TABLE "user" (
 CREATE TABLE "my_collection" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT NOT NULL,
-	"bird_name" VARCHAR (200),
+	"common_name" VARCHAR (200),
 	"location" VARCHAR (200),
 	"date" DATE,
 	"time" TIME,
