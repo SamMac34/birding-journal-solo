@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import useHistory from 'react-router-dom';
+import { useHistory } from "react-router-dom"
 // Add Bird to 'My Collection'
 function AddBirdForm() {
     const dispatch = useDispatch();
-    // const history = useHistory();
+    const history = useHistory();
     const user = useSelector(store => store.user);
     const birdToAdd = useSelector(store => store.birdToAdd);
-
 
     const [birdName, setBirdName] = useState('');
     const [observationLocation, setObservationLocation] = useState('');
@@ -15,24 +14,20 @@ function AddBirdForm() {
     const [observationTime, setObservationTime] = useState('');
     const [observationNotes, setObservationNotes] = useState('');
     const [birdImage, setBirdImage] = useState('');
-    // const [birdImage, setBirdImage] = useState("./images/image-not-available.png");
 
 
     // Handle bird info incoming from SearchPage
-    // useEffect(() => {
-    //     // console.log( 'In useEffect, birdToAdd.common_name is:', birdToAdd.common_name)
-    //     if (birdToAdd.common_name) {
-    //         fillInputs();
-    //     }
-    // }, []);
+    useEffect(() => {
+        // console.log( 'In useEffect, birdToAdd.common_name is:', birdToAdd.common_name)
+        if (birdToAdd.common_name) {
+            fillInputs();
+        }
+    }, []);
 
-    // console.log( 'birdToAdd.common_name is:', birdToAdd.common_name)
-    // console.log( 'birdToAdd.name is:', birdToAdd.name)
-
-    // const fillInputs = () => {
-    //     setBirdName(birdToAdd.common_name)
-    // }
-
+    // Fill input fields with birdToAdd information if it exists
+    const fillInputs = () => {
+        setBirdName(birdToAdd.common_name)
+    }
     
     // Handle data submit and dispatch ADD_BIRD action
     const handleSubmit = (event) => {
@@ -131,9 +126,7 @@ function AddBirdForm() {
             <button type="submit">Add Bird</button>
 
         </form>
-
     )
-
 }
 
 export default AddBirdForm;

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './ProfilePage.css'
-// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import BirdCollection from "../BirdCollection/BirdCollection";
 import BirdWishlist from "../BirdWishlist/BirdWishlist";
 
 
 function ProfilePage() {
     const dispatch = useDispatch();
-    // const history = useHistory();
     const birdCollection = useSelector(store => store.collection);
     const birdWishlist = useSelector(store => store.wishlist);
     const user = useSelector(store => store.user);
@@ -37,11 +35,6 @@ function ProfilePage() {
             payload: user.id
         });
     };
-
-
-    // console.log('In Profile, birdCollection is:', birdCollection)
-    // console.log('In Profile, birdWishlist is:', birdWishlist)
-    // console.log('In Profile, user is:', user)
 
 
     return (
