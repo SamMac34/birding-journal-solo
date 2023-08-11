@@ -47,25 +47,4 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-// Fetch user profile information
-// router.get('/profile', rejectUnauthenticated, (req, res) => {
-//   const userId = req.params.id;
-//   const queryText = `SELECT count("id") 
-//      FROM "my_collection" WHERE "user_id" = $1;`;
-
-//     if (req.isAuthenticated()) {
-//         pool.query(queryText, [userId])
-//     .then(response => {
-//         console.log('response is:', response.data);
-//         res.send(response.data);
-//     }).catch((err) => {
-//         console.log('Error fetching profile info:', err);
-//         res.sendStatus(500);
-//     });
-// }
-// else {
-//     res.sendStatus(403);
-// }
-// })
-
 module.exports = router;
