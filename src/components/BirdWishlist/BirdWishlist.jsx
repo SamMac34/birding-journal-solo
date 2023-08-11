@@ -6,16 +6,18 @@ function BirdWishlist(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(store => store.user);
-    const wishlist = useSelector(store => store.wishlist)
-    // console.log('props is:', props.bird)
+    // const wishlist = useSelector(store => store.wishlist)
+    const bird = useSelector(store => store.wishlist)
+
+    console.log('bird is:', bird)
 
 
 
-    const deleteBirdFromWishlist = (props) => {
-        console.log('In deleteBirdFromWishlist, props.bird is:', props.id)
+    const deleteBirdFromWishlist = (bird) => {
+        console.log('In deleteBirdFromWishlist, props.bird is:', bird.id)
         dispatch({
             type: 'DELETE_BIRD_WISHLIST',
-            payload: props.id,
+            payload: bird.id,
             user: user.id
         })
     };
@@ -24,7 +26,7 @@ function BirdWishlist(props) {
     return (
         <div className="bird-card-wishlist">
             <img
-                src={props.bird.images ? props.bird.images
+                src={props.bird.bird_image ? props.bird.bird_image
                     :
                     "./images/image-not-available.png"}
             />
@@ -32,7 +34,7 @@ function BirdWishlist(props) {
             <div className="bird-sci-name">{'(' + props.bird.sci_name + ')'}</div>
             <div className="bird-regions">{props.bird.region}</div>
             <div className="bird-status">{props.bird.status}</div>
-            {/* <button className="add-to-collection-btn" type="button" onClick={() => addBirdToCollection(props.bird)} >Add to Collection</button> */}
+            <button className="add-to-collection-btn" type="button" onClick={() => addBirdToCollection(props.bird)} >Add to Collection</button>
             <button className="remove-from-wishlist-btn" type="button" onClick={() => deleteBirdFromWishlist(props.bird)} >Remove from Wishlist</button>
 
         </div>

@@ -26,6 +26,7 @@ function EditBirdForm() {
     // then take user back to Profile page
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log('submit edit bird is:', birdToEdit )
         dispatch({
             type: 'SUBMIT_EDIT_BIRD',
             payload: birdToEdit,
@@ -50,7 +51,8 @@ function EditBirdForm() {
         <input value={birdToEdit.date ?? ''} type="date" placeholder="Date" onChange={event => handleChange(event, 'date')} />
         <input value={birdToEdit.time ?? ''} type="time" placeholder="Time" onChange={event => handleChange(event, 'time')} />
         <input value={birdToEdit.notes ?? ''} type="text" placeholder="Notes" onChange={event => handleChange(event, 'notes')} />
-        <input value={birdToEdit.bird_image ?? ''} type="text" placeholder="Add Image" onChange={event => handleChange(event, 'bird_image')} />
+        {/* <input value={birdToEdit.bird_image ?? ''} type="file" placeholder="Add Image" onChange={event => handleChange(event, 'bird_image')} /> */}
+        <input type="file"  onChange={event => handleChange(event, 'bird_image')} />
 
         <button onClick={cancelEditBird} type="button" >Cancel Edit Bird</button>
         <button type="submit">Edit Bird</button>

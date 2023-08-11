@@ -7,8 +7,10 @@ function BirdCollection(props) {
     const history = useHistory();
     const user = useSelector(store => store.user);
 
+
     // Dispatch action to edit selected bird
     const handleEditBirdClick = () => {
+        console.log('in handleEditBird, bird is:', props.bird)
         dispatch({
             type: 'SET_EDIT_BIRD',
             payload: props.bird

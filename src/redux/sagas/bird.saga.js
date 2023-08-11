@@ -42,7 +42,7 @@ function* addBirdToCollectionHasImage(action) {
     }
 };
 
-
+// Add bird to my Collection (no image)
 function* addBirdToCollectionNoImage(action) {
     console.log('In bird saga(addBirdImageToCollection), action.payload is:', action.payload);
 

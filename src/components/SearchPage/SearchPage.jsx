@@ -23,7 +23,7 @@ function SearchPage() {
 
     const addBirdToCollection = (bird) => {
         console.log('In SearchPage, bird is:', bird);
-
+    
         dispatch({
             type: 'SET_ADD_BIRD',
             payload: {
@@ -37,11 +37,12 @@ function SearchPage() {
             }        
         });
         history.push('/addbird');
+        // alert('Added to Collection!')
 
     };
 
     const addBirdToWishlist = (bird) => {
-        console.log('In addBirdToWishlist(SearchPage), bird is:', bird);
+        console.log('In addBirdToWishlist, bird is:', bird);
         dispatch({
             type: 'ADD_BIRD_WISHLIST',
             payload: {
@@ -55,6 +56,7 @@ function SearchPage() {
                 status: bird.status,
             }
         })
+        alert('Added to Wishlist!')
     };
 
     return (

@@ -8,16 +8,14 @@ Winged/Feathered/Birding/Chirp/Avian/Flock
 
 
 # TODO
-1. Figure out how to setObservationDate in AddBird
+1. Figure out how to setObservationDate in AddBird✅
 
 2. "                " set missing data fields in SearchPage when
-trying to add a bird to collection
+trying to add a bird to collection✅
 
 3. Add region North America to search sqlQuery
 
-4. Change common_name to common_name
-
-5. Change image input for Edit Bird
+5. Change image input for Edit Bird - add another on change which targets e.target.file(s)?
 
 6. Alert for Add/edit
 
@@ -25,3 +23,4 @@ trying to add a bird to collection
 
 8. Add dependencies
 npm install multer
+

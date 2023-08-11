@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
+
+
 // Add Bird to 'My Collection'
 function AddBirdForm() {
     const dispatch = useDispatch();
@@ -91,7 +93,8 @@ function AddBirdForm() {
                 location: observationLocation,
                 date: currentDate,
                 time: currentTime,
-                notes: observationNotes
+                notes: observationNotes,
+                image: birdToAdd.image
             }
         });
         }
@@ -99,7 +102,7 @@ function AddBirdForm() {
         dispatch({
             type: 'CLEAR_ADD_BIRD',
         });
-        // history.push('/profile');
+        history.push('/profile');
     };
 
     // If AddBird is cancelled, clear birdToAdd reducer and return user to ProfilePage 
