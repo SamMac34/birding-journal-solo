@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
+import useHistory from 'react-router-dom'
 // Add Bird to 'My Collection'
 function AddBirdForm() {
     const dispatch = useDispatch();
