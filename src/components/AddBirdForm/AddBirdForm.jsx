@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useHistory from 'react-router-dom'
+// import useHistory from 'react-router-dom';
 // Add Bird to 'My Collection'
 function AddBirdForm() {
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const user = useSelector(store => store.user);
     const birdToAdd = useSelector(store => store.birdToAdd);
 
@@ -16,6 +16,7 @@ function AddBirdForm() {
     const [observationNotes, setObservationNotes] = useState('');
     const [birdImage, setBirdImage] = useState('');
     // const [birdImage, setBirdImage] = useState("./images/image-not-available.png");
+
 
     // Handle bird info incoming from SearchPage
     // useEffect(() => {
@@ -32,6 +33,7 @@ function AddBirdForm() {
     //     setBirdName(birdToAdd.common_name)
     // }
 
+    
     // Handle data submit and dispatch ADD_BIRD action
     const handleSubmit = (event) => {
         event.preventDefault();
