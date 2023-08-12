@@ -24,3 +24,6 @@ trying to add a bird to collection✅
 8. Add dependencies
 npm install multer
 
+9. Shift +cmd+F - Hides browser top
+
+10. clean up desktop/bookmarks

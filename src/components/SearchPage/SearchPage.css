@@ -11,13 +11,6 @@ h1 {
     padding: 5px;
 }
 
-/* .bird-name-no-image {
-    font-weight: bold;
-    font-size: 20px;
-    margin-left: 2em;
-    min-height: 7em;
-} */
-
 .bird-sci-name {
     font-style: italic;
     padding: 9px 5px 5px 5px;
@@ -41,6 +34,13 @@ input {
     font-size: 1em;
 }
 
+/* BUTTONS */
 .search-btn {
     font-size: 1em;
+}
+
+.add-to-collection-btn, .add-to-wishlist-btn {
+    /* align-self: flex-end; */
+    margin: 5px 5px 5px auto;
+    /* margin-right: 0px; */
 }

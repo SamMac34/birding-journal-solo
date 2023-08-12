@@ -6,18 +6,30 @@ function BirdWishlist(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(store => store.user);
-    // const wishlist = useSelector(store => store.wishlist)
-    const bird = useSelector(store => store.wishlist)
+    const bird = useSelector(store => store.wishlist);
 
     console.log('bird is:', bird)
+    console.log('props.bird is:', props.bird)
 
 
+    const addBirdToCollection = () => {
+        console.log('In addBirdToCollection');
+        dispatch({
+            type: 'SET_ADD_BIRD',
+            payload: {
+                userId: user.id,
+                common_name: props.bird.name,
+                image: props.bird.bird_image 
+            }        
+        });
+        history.push('/addbird');
+    };
 
     const deleteBirdFromWishlist = (bird) => {
         console.log('In deleteBirdFromWishlist, props.bird is:', bird.id)
         dispatch({
             type: 'DELETE_BIRD_WISHLIST',
-            payload: bird.id,
+            payload: props.bird.id,
             user: user.id
         })
     };
@@ -25,11 +37,13 @@ function BirdWishlist(props) {
 
     return (
         <div className="bird-card-wishlist">
+            <div className="bird-image-container">
             <img
                 src={props.bird.bird_image ? props.bird.bird_image
                     :
                     "./images/image-not-available.png"}
             />
+            </div>
             <div className="bird-name">{props.bird.common_name}</div>
             <div className="bird-sci-name">{'(' + props.bird.sci_name + ')'}</div>
             <div className="bird-regions">{props.bird.region}</div>

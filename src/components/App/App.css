@@ -9,12 +9,6 @@ body {
   margin: 0px;
 }
 
-img {
-  display: inline-block;
-  max-width: 200px;
-  max-height: 150px;
-}
-
 /* --------------------------------------------------------------------------------
 Container
 -------------------------------------------------------------------------------- */
@@ -112,7 +106,101 @@ input {
   margin-bottom: 10px;
 }
 
+/* --------------------------------------------------------------------------------
+Bird Containers
+-------------------------------------------------------------------------------- */
+
 .bird-card, .bird-card-collection, .bird-card-wishlist {
   border: 1px solid black;
   display: flex;
+  font-size: 18px;
+  /* margin: 0em 1em 0em 1em; */
+  min-width: 100%;
 }
+
+#img-profile {
+  border: 2px solid black;
+  border-radius: 50% / 50%;
+  margin: auto 1em;
+}
+
+.bird-image-container {
+  border-right: 1px solid black;
+  min-width: 230px;
+  max-width: 230px;
+  max-height: 153px;
+  min-height: 153px;
+}
+
+img {
+  display: inline-block;
+  max-width: 230px;
+  max-height: 154px;
+}
+
+.bird-info-div {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 100%;
+  /* flex-flow: column; */
+}
+
+.btn-div {
+  border-left: 1px solid black;
+  max-width: 10em;
+  min-width: 10em;
+}
+
+.bird-name {
+  align-self: flex-start;
+  border: 1px solid black;
+  /* flex: 0 0 0px; */
+  font-weight: bold;
+  font-size: 22px;
+  min-width: 30%;
+  max-width: 30%;
+  overflow-wrap: break-word;
+  margin: 0.5em 0.5em 0.5em 1em;
+  padding: 0px;
+}
+
+.observation-location {
+  border: 1px solid black;
+  display: inline;
+  height: fit-content;
+  margin: 0.75em 1em 1em 0em;
+  min-width: 30%;
+  max-width: 30%;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+}
+
+.observation-notes {
+  border: 1px solid black;
+  min-width: 80%;
+  align-self: flex-end;
+  justify-self: flex-start;
+  margin: 0em 2em 0.5em 3em;
+  min-height: 3em;
+  max-width: 80%;
+  padding: 5px;
+  overflow-wrap: break-word;
+}
+
+.observation-time {
+  border: 1px solid black;
+  margin: 0.75em 1em 1em 0em;
+  min-width: fit-content;
+  align-self: flex-start;
+}
+
+.observation-date {
+
+  border: 1px solid black;
+  margin: 0.75em 0.25em 1em 0em;
+  min-width: fit-content;
+  align-self: flex-start;
+}
+
+

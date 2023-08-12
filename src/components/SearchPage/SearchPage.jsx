@@ -78,11 +78,13 @@ function SearchPage() {
             {birds?.entities?.map((bird) => {
                 return (
                         <div key={bird.id} className="bird-card">
+                            <div className="bird-image-container">
                             <img
                             src={bird.images[0] ? bird.images[0]
                             :
                             "./images/image-not-available.png"}
                             />
+                            </div>
                             <div className="bird-name">{bird.name}</div>
                             <div className="bird-sci-name">{'('+ bird.sciName + ')'}</div>
                             {/* Possibly change to bird.region, depending on BirdWishlist view */}

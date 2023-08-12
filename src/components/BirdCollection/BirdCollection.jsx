@@ -31,19 +31,26 @@ function BirdCollection(props) {
 
     return (
         <div className="bird-card-collection">
-            <img
-                src={props.bird.bird_image ? props.bird.bird_image
-                    :
-                    "./images/image-not-available.png"}
-            />
+            <div className="bird-image-container">
+                <img
+                    src={props.bird.bird_image ? props.bird.bird_image
+                        :
+                        "./images/image-not-available.png"}
+                />
+            </div>
+
+            <div className="bird-info-div">
             <div className="bird-name">{props.bird.common_name}</div>
-            <div>Bird ID is: {props.bird.id}</div>
-            <div >Observation Location: {props.bird.location}</div>
-            <div >Notes: {props.bird.notes}</div>
-            <div >Time seen: {props.bird.time}</div>
-            <div >Date seen: {props.bird.date}</div>
-            <button onClick={handleEditBirdClick}>Edit</button>
-            <button onClick={handleDeleteBirdClick}>Remove</button>
+            {/* <div >ID: {props.bird.id}</div> */}
+            <div className="observation-location">Location: {props.bird.location}</div>
+            <div className="observation-time">Time: {props.bird.time}</div>
+            <div className="observation-date">Date: {props.bird.date}</div>
+            <div className="observation-notes"><span>Notes:</span>{props.bird.notes}</div>
+            </div>
+            <div className="btn-div">
+            <button className="collection-btn edit-btn" onClick={handleEditBirdClick}>Edit</button>
+            <button className="collection-btn remove-btn" onClick={handleDeleteBirdClick}>Remove</button>
+            </div>
         </div>
     )
 };

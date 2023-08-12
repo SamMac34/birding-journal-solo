@@ -36,22 +36,22 @@ function ProfilePage() {
         });
     };
 
-
     return (
-        <>
+        <div className="collection-container">
             {/* Add # of birds in collection/wishlist, date joined, last bird added */}
             <div id="user-profile">
-                <img src="./images/image-not-available.png" />
+                {/* <img id="img-profile" src="./images/image-not-available.png" /> */}
+                <img id="img-profile" src="https://images.unsplash.com/photo-1660765181897-a992a8204b5a" alt="avatar"/>
+
                 <h2>{user.username}</h2>
                 <p>Birds in My Collection:{birdCollection.length}</p>
                 <p>Birds in My Wishlist:{birdWishlist.length}</p>
-
                 <p>Last bird added to Collection:{birdCollection[0]?.common_name}</p>
             </div>
 
             <div>
-                <button className="collection-button" type="button" onClick={() => setToggleListDisplay(true)} >My Collection</button>
-                <button className="wishlist-button" type="button" onClick={() => setToggleListDisplay(false)} > My Wishlist</button>
+                <button className="collection-header-btn" type="button" onClick={() => setToggleListDisplay(true)} >My Collection</button>
+                <button className="wishlist-header-btn" type="button" onClick={() => setToggleListDisplay(false)} > My Wishlist</button>
             </div>
 
             {toggleListDisplay ?
@@ -71,7 +71,7 @@ function ProfilePage() {
                     })}
                 </div>
             }
-        </>
+        </div>
     )
 };
 
