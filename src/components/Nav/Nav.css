@@ -3,9 +3,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  
   margin: 0px;
-  background-color: blue;
+  background-color: #1e1e90;
   overflow: hidden;
 }
 
@@ -19,13 +19,13 @@
   font-weight: 700;
   color: #f2f2f2;
   padding-left: 10px;
-  margin: 0 auto;
+  margin: 0.75em 1em 0.75em 1em;
 }
 
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: blue;
+  background-color: #1e1e90;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;

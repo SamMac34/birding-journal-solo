@@ -1,7 +1,7 @@
 .search-header {
     display: flex;
     align-items: center;
-    background-color: #0000FF;
+    background-color: #1e1e90;
     color: white;
     width: 100%;
     height: 2.5em;
@@ -39,23 +39,26 @@
     margin-left: 5px;
 }
 
+.search-form {
+    float: right;
+    margin: 0em 5em 4em 2em;
+}
+
 .search-input {
+    border-radius: 5px;
     font-size: 18px;
-    margin: 2em 1em 0em 3em;
+    height: 2em;
+    margin: 1em 1em 0em 3em;
+    width: 12em;
 }
 
 /* BUTTONS */
 .search-btn {
+    border-radius: 5px;
     font-size: 18px;
+    height: 2.3em;
+    width: 5em;
 }
-
-/* .add-to-collection-btn, .add-to-wishlist-btn {
-    align-self: flex-end;
-    margin: 5px 5px 5px auto;
-    margin-right: 0px;
-} */
-
-/* Copied from ProfilePage.css */
 
 .add-to-collection-btn,
 .add-to-wishlist-btn {
@@ -74,4 +77,10 @@
 .bird-sci-name {
     margin: 0.75em 4em 1em 0em;
     min-width: fit-content;
+}
+
+h3 {
+    font-size: 22px;
+    margin: 2em;
+    text-align: center;
 }

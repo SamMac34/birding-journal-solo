@@ -30,7 +30,7 @@ export default function BasicMenu() {
                     component="div"
                     sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                 >
-                    <MenuIcon sx={{ fontSize: 40 }} className='menu-icon'></MenuIcon>
+                    <MenuIcon sx={{ fontSize: 50, marginTop: 1 }} className='menu-icon'></MenuIcon>
                 </Typography>
             </Button>
             <Menu

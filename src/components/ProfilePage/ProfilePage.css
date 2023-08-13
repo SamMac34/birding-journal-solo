@@ -9,6 +9,7 @@ Profile Container
 .user-profile-container {
     display: flex;
     border: 3px solid black;
+    border-radius: 40px;
     flex-direction: column;
     flex-wrap: wrap;
     width: 50em;
@@ -63,7 +64,7 @@ Profile Container
 }
 
 .collection-header-btn, .wishlist-header-btn {
-    background-color: #0000FF;
+    background-color: #1e1e90;
     color: white;
     width: 50%;
     height: 2.5em;

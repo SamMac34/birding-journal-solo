@@ -29,3 +29,5 @@ npm install multer
 10. clean up desktop/bookmarks
 
 11. Fix logout button 404 error
+
+12. project blue: #1e1e90

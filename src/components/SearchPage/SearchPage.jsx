@@ -58,7 +58,8 @@ function SearchPage() {
     return (
         <section>
             {/* TODO - add label, required */}
-            <form onSubmit={searchBirdApi}>
+            <h3>Search the Nuthatch database of 1000+ birds!</h3>
+            <form className="search-form" onSubmit={searchBirdApi}>
                 <input className="search-input"
                     type="text"
                     name="bird"
