@@ -56,7 +56,7 @@
 
 .user-page-logout-btn:hover {
     
-    cursor: grab;
+    cursor: pointer;
 }
 
 .user-page-link {

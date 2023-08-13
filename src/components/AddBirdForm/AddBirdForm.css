@@ -1,3 +1,60 @@
-/* .add-bird-image-input {
-    border: 1px solid black;
-} */
+.add-form-panel {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5em auto;
+    text-align: center;
+    width: 50%;
+}
+
+.add-form-header {
+    /* background-color: blue; */
+    border-bottom: 1px solid black;
+    margin: 5px;
+    padding: 10px 10px 15px 10px;
+    width: 100%;
+}
+
+.bird-name-input,
+.bird-location-input,
+.bird-date-input,
+.bird-time-input {
+    font-size: 18px;
+    height: 1.5em;
+    width: 40%;
+    margin: 1em auto;
+    padding: 5px;
+
+}
+
+.bird-notes-input {
+    font-size: 18px;
+    height: 5em;
+    margin: 1em auto 0em;
+    text-align: start;
+    width: 90%;
+}
+
+.bird-image-input {
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    font-size: 18px;
+    height: 2em;
+    margin: 1em;
+    width: 90%;
+}
+
+
+.add-bird-btn, .cancel-add-btn {
+    border-radius: 10px;
+    font-size: 18px;
+    height: 2.5em;
+    margin: 1.5em 1em 2em 1em;
+    width: 30%;
+}
+
+.add-bird-btn:hover, .cancel-add-btn:hover {
+    cursor: pointer;
+}

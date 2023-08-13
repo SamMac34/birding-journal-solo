@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import './EditBirdForm.css';
+
 
 // Edit bird in 'My Collection'
 function EditBirdForm() {
@@ -42,20 +44,19 @@ function EditBirdForm() {
 
     // TODO - make sure inputs have required/value/
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="edit-form-panel" onSubmit={handleSubmit}>
 
-        <h1>Edit bird in your Collection!</h1>
+        <h1 className="edit-form-header">Edit bird in your Collection!</h1>
 
-        <input value={birdToEdit.common_name ?? ''} type="text" placeholder="Bird Name" onChange={event => handleChange(event, 'common_name')} />
-        <input value={birdToEdit.location ?? ''} type="text" placeholder=" Your Location" onChange={event => handleChange(event, 'location')} />
-        <input value={birdToEdit.date ?? ''} type="date" placeholder="Date" onChange={event => handleChange(event, 'date')} />
-        <input value={birdToEdit.time ?? ''} type="time" placeholder="Time" onChange={event => handleChange(event, 'time')} />
-        <input value={birdToEdit.notes ?? ''} type="text" placeholder="Notes" onChange={event => handleChange(event, 'notes')} />
-        {/* <input value={birdToEdit.bird_image ?? ''} type="file" placeholder="Add Image" onChange={event => handleChange(event, 'bird_image')} /> */}
-        <input type="file"  onChange={event => handleChange(event, 'bird_image')} />
-
-        <button onClick={cancelEditBird} type="button" >Cancel Edit Bird</button>
-        <button type="submit">Edit Bird</button>
+        <input className="bird-name-input" value={birdToEdit.common_name ?? ''} type="text" placeholder="Bird Name" onChange={event => handleChange(event, 'common_name')} />
+        <input className="bird-location-input" value={birdToEdit.location ?? ''} type="text" placeholder=" Your Location" onChange={event => handleChange(event, 'location')} />
+        <input className="bird-date-input" value={birdToEdit.date ?? ''} type="date" placeholder="Date" onChange={event => handleChange(event, 'date')} />
+        <input className="bird-time-input" value={birdToEdit.time ?? ''} type="time" placeholder="Time" onChange={event => handleChange(event, 'time')} />
+        <textarea className="bird-notes-input" value={birdToEdit.notes ?? ''} type="text" placeholder="Notes" onChange={event => handleChange(event, 'notes')} />
+        {/* <input className="bird-image-input" value={birdToEdit.bird_image ?? ''} type="file" placeholder="Add Image" onChange={event => handleChange(event, 'bird_image')} /> */}
+        <input className="bird-image-input" type="file"  onChange={event => handleChange(event, 'bird_image')} />
+        <button className="cancel-edit-btn" onClick={cancelEditBird} type="button" >Cancel Edit Bird</button>
+        <button className="edit-bird-btn" type="submit">Edit Bird</button>
 
         </form>
     )
