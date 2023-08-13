@@ -1,0 +1,60 @@
+.user-page-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.user-name {
+    font-size: 30px;
+    margin: 2em auto 2em auto;
+    text-align: center;
+    width: 100%;
+}
+
+.user-name-span {
+    color: blue;
+}
+
+.user-page-h4 {
+    font-size: 20px;
+    width: 100%;
+    margin: 2em;
+    text-align: center;
+}
+
+.user-page-btn-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    width: 80%;
+}
+
+.user-page-profile-btn,
+.user-page-search-btn {
+    border-radius: 10px;
+    font-size: 18px;
+    height: 3em;
+    margin: 1em;
+    width: 30%;
+}
+
+.user-page-logout-btn {
+    border-radius: 10px;
+    font-size: 18px;
+    height: 3em;
+    margin: 5em 1em 1em 1em;
+    padding: 1px;
+    width: 15%;
+}
+
+.user-page-link {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+}
