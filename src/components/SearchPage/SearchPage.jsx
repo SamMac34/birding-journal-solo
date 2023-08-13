@@ -87,8 +87,8 @@ function SearchPage() {
                         <div className="bird-info-div">
                             <div className="bird-name">{bird.name}</div>
                             <div className="bird-sci-name">{'(' + bird.sciName + ')'}</div>
-                            <div className="bird-regions">{bird.region[0]}</div>
-                            <div className="bird-status">{bird.status}</div>
+                            <div className="bird-regions">Regions: {bird.region[0]}</div>
+                            <div className="bird-status">Status: {bird.status}</div>
                         </div>
 
                         <div className="btn-div">
