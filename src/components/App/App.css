@@ -27,7 +27,7 @@ Button
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: rgb(101, 101, 239);
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -50,7 +50,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: rgb(101, 101, 239);
   text-decoration: none;
 }
 
@@ -118,12 +118,6 @@ Bird Containers
   width: 100%;
 }
 
-/* #img-profile {
-  border: 2px solid black;
-  border-radius: 50% / 50%;
-  margin: auto 1em;
-} */
-
 .bird-image-container {
   border-right: 1px solid black;
   min-width: 230px;
@@ -160,16 +154,16 @@ Bird Containers
   /* border: 1px solid black; */
   font-weight: bold;
   font-size: 22px;
-  min-width: 30%;
+  min-width: 25%;
   max-width: 30%;
   overflow-wrap: break-word;
-  margin: 0.5em 0.5em 0.5em 1em;
+  margin: 0.5em 0.5em 0.5em 3em;
   padding: 0px;
 }
 
 .observation-location {
   /* border: 1px solid black; */
-  display: inline;
+  /* display: inline; */
   height: fit-content;
   margin: 0.75em 1em 1em 0em;
   min-width: 30%;
@@ -185,7 +179,7 @@ Bird Containers
   justify-self: flex-start;
   margin: 0em 2em 0.5em 3em;
   min-height: 3em;
-  width: 80%;
+  width: 90%;
   padding: 5px;
   overflow-wrap: break-word;
 }
@@ -198,7 +192,6 @@ Bird Containers
 }
 
 .observation-date {
-
   /* border: 1px solid black; */
   margin: 0.75em 0.25em 1em 0em;
   min-width: fit-content;

@@ -23,18 +23,14 @@ function SearchPage() {
 
     const addBirdToCollection = (bird) => {
         console.log('In SearchPage, bird is:', bird);
-    
+
         dispatch({
             type: 'SET_ADD_BIRD',
             payload: {
                 userId: user.id,
                 common_name: bird.name,
-                // location: observationLocation,
-                // date: observationDate,
-                // time: observationTime,
-                // notes: observationNotes,
-                image: bird.images[0] 
-            }        
+                image: bird.images[0]
+            }
         });
         history.push('/addbird');
         // alert('Added to Collection!')
@@ -63,7 +59,7 @@ function SearchPage() {
         <section>
             {/* TODO - add label, required */}
             <form onSubmit={searchBirdApi}>
-                <input
+                <input className="search-input"
                     type="text"
                     name="bird"
                     placeholder="Search birds"
@@ -73,26 +69,34 @@ function SearchPage() {
                 <button className="search-btn" type='submit'>Search</button>
             </form>
 
-            <h1>Results</h1>
+            <div className="search-header">
+                <h3>Results</h3>
+            </div>
 
             {birds?.entities?.map((bird) => {
                 return (
-                        <div key={bird.id} className="bird-card">
-                            <div className="bird-image-container">
-                            <img
-                            src={bird.images[0] ? bird.images[0]
-                            :
-                            "./images/image-not-available.png"}
+                    <div key={bird.id} className="bird-card">
+                        <div className="bird-image-container">
+                            <img className="bird-img"
+                                src={bird.images[0] ? bird.images[0]
+                                    :
+                                    "./images/image-not-available.png"}
                             />
-                            </div>
+                        </div>
+
+                        <div className="bird-info-div">
                             <div className="bird-name">{bird.name}</div>
-                            <div className="bird-sci-name">{'('+ bird.sciName + ')'}</div>
-                            {/* Possibly change to bird.region, depending on BirdWishlist view */}
-                            <div className="bird-regions">{bird.region[1] ? bird.region[0]+','+bird.region[1] : bird.region[0] }</div>
+                            <div className="bird-sci-name">{'(' + bird.sciName + ')'}</div>
+                            <div className="bird-regions">{bird.region[0]}</div>
                             <div className="bird-status">{bird.status}</div>
+                        </div>
+
+                        <div className="btn-div">
                             <button className="add-to-collection-btn" type="button" onClick={() => addBirdToCollection(bird)} >Add to Collection</button>
                             <button className="add-to-wishlist-btn" type="button" onClick={() => addBirdToWishlist(bird)} >Add to Wishlist</button>
                         </div>
+
+                    </div>
 
                 )
             })}

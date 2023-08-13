@@ -40,15 +40,15 @@ function BirdCollection(props) {
             </div>
 
             <div className="bird-info-div">
-            <h3 className="bird-name">{props.bird.common_name}</h3>
-            <div className="observation-location">Location: {props.bird.location}</div>
-            <div className="observation-time">Time: {props.bird.time}</div>
-            <div className="observation-date">Date: {props.bird.date}</div>
-            <div className="observation-notes"><span>Notes:</span>{props.bird.notes}</div>
+                <h3 className="bird-name">{props.bird.common_name}</h3>
+                <div className="observation-location">Location: {props.bird.location}</div>
+                <div className="observation-time">Time: {props.bird.time}</div>
+                <div className="observation-date">Date: {props.bird.date}</div>
+                <div className="observation-notes"><span>Notes:</span>{props.bird.notes}</div>
             </div>
             <div className="btn-div">
-            <button className="collection-btn edit-btn" onClick={handleEditBirdClick}>Edit</button>
-            <button className="collection-btn remove-btn" onClick={handleDeleteBirdClick}>Remove</button>
+                <button className="collection-btn edit-btn" onClick={handleEditBirdClick}>Edit</button>
+                <button className="collection-btn remove-btn" onClick={handleDeleteBirdClick}>Remove</button>
             </div>
         </div>
     )

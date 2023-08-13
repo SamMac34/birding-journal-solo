@@ -19,8 +19,8 @@ function BirdWishlist(props) {
             payload: {
                 userId: user.id,
                 common_name: props.bird.name,
-                image: props.bird.bird_image 
-            }        
+                image: props.bird.bird_image
+            }
         });
         history.push('/addbird');
     };
@@ -38,19 +38,24 @@ function BirdWishlist(props) {
     return (
         <div className="bird-card-wishlist">
             <div className="bird-image-container">
-            <img
-                src={props.bird.bird_image ? props.bird.bird_image
-                    :
-                    "./images/image-not-available.png"}
-            />
+                <img className="bird-img"
+                    src={props.bird.bird_image ? props.bird.bird_image
+                        :
+                        "./images/image-not-available.png"}
+                />
             </div>
-            <div className="bird-name">{props.bird.common_name}</div>
-            <div className="bird-sci-name">{'(' + props.bird.sci_name + ')'}</div>
-            <div className="bird-regions">{props.bird.region}</div>
-            <div className="bird-status">{props.bird.status}</div>
-            <button className="add-to-collection-btn" type="button" onClick={() => addBirdToCollection(props.bird)} >Add to Collection</button>
-            <button className="remove-from-wishlist-btn" type="button" onClick={() => deleteBirdFromWishlist(props.bird)} >Remove from Wishlist</button>
 
+            <div className="bird-info-div">
+                <h3 className="bird-name">{props.bird.common_name}</h3>
+                <div className="bird-sci-name">{'(' + props.bird.sci_name + ')'}</div>
+                <div className="bird-regions">Regions: {props.bird.region}</div>
+                <div className="bird-status"> Status: {props.bird.status}</div>
+            </div>
+
+            <div className="btn-div">
+                <button className="add-to-collection-btn" type="button" onClick={() => addBirdToCollection(props.bird)} >Add to Collection</button>
+                <button className="remove-from-wishlist-btn" type="button" onClick={() => deleteBirdFromWishlist(props.bird)} >Remove</button>
+            </div>
         </div>
     )
 };
