@@ -32,7 +32,7 @@ function BirdCollection(props) {
     return (
         <div className="bird-card-collection">
             <div className="bird-image-container">
-                <img
+                <img className="bird-img"
                     src={props.bird.bird_image ? props.bird.bird_image
                         :
                         "./images/image-not-available.png"}
@@ -40,8 +40,7 @@ function BirdCollection(props) {
             </div>
 
             <div className="bird-info-div">
-            <div className="bird-name">{props.bird.common_name}</div>
-            {/* <div >ID: {props.bird.id}</div> */}
+            <h3 className="bird-name">{props.bird.common_name}</h3>
             <div className="observation-location">Location: {props.bird.location}</div>
             <div className="observation-time">Time: {props.bird.time}</div>
             <div className="observation-date">Date: {props.bird.date}</div>

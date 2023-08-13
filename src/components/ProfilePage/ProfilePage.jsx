@@ -37,16 +37,20 @@ function ProfilePage() {
     };
 
     return (
-        <div className="collection-container">
+        <div className="collection-body">
             {/* Add # of birds in collection/wishlist, date joined, last bird added */}
-            <div id="user-profile">
-                {/* <img id="img-profile" src="./images/image-not-available.png" /> */}
-                <img id="img-profile" src="https://images.unsplash.com/photo-1660765181897-a992a8204b5a" alt="avatar"/>
-
-                <h2>{user.username}</h2>
-                <p>Birds in My Collection:{birdCollection.length}</p>
-                <p>Birds in My Wishlist:{birdWishlist.length}</p>
-                <p>Last bird added to Collection:{birdCollection[0]?.common_name}</p>
+            <div className="user-profile-container">
+                <div className="avatar-container">
+                    <img id="avatar-img" src="https://images.unsplash.com/photo-1660765181897-a992a8204b5a" alt="avatar" />
+                </div>
+                <div className="user-name-container">
+                    <h2 className="user-name-profile">{user.username}</h2>
+                </div>
+                <div className="profile-stats-container">
+                    <h4 className="profile-stats">Birds in My Collection: {birdCollection.length}</h4>
+                    <h4 className="profile-stats">Birds in My Wishlist: {birdWishlist.length}</h4>
+                    <h4 className="profile-stats">Last bird added to Collection: {birdCollection[0]?.common_name}</h4>
+                </div>
             </div>
 
             <div>
