@@ -174,7 +174,7 @@ Bird Containers
 
 .observation-notes {
   border: 1px solid black;
-  min-width: 80%;
+  width: 100%;
   align-self: flex-end;
   justify-self: flex-start;
   margin: 0em 2em 0.5em 3em;

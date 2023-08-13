@@ -23,7 +23,8 @@ import SearchPage from '../SearchPage/SearchPage';
 import AddBirdForm from '../AddBirdForm/AddBirdForm';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import EditBirdForm from '../EditBirdForm/EditBirdForm';
-
+// import BasicMenu from '../Menu/Menu';
+// import DrawerAppBar from '../AppBar/AppBar';
 import './App.css';
 
 
@@ -39,6 +40,7 @@ function App() {
   return (
     <Router>
       <div>
+        {/* <DrawerAppBar /> */}
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}

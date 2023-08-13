@@ -8,8 +8,8 @@ function BirdWishlist(props) {
     const user = useSelector(store => store.user);
     const bird = useSelector(store => store.wishlist);
 
-    console.log('bird is:', bird)
-    console.log('props.bird is:', props.bird)
+    // console.log('bird is:', bird)
+    // console.log('props.bird is:', props.bird)
 
 
     const addBirdToCollection = () => {

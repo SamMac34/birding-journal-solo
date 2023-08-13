@@ -14,11 +14,12 @@
 }
 
 .nav-title {
-  font-size: 24px;
+  align-self: center;
+  font-size: 28px;
   font-weight: 700;
   color: #f2f2f2;
   padding-left: 10px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .navLink {
@@ -39,4 +40,8 @@
 
 .navLink:hover {
   background-color: rgb(101, 101, 239);
+}
+
+.menu-icon {
+  color: white;
 }
