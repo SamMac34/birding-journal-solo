@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 function LogOutButton(props) {
+
+  // console.log('In LogOutButton props is:', props)
   const dispatch = useDispatch();
   return (
     <button

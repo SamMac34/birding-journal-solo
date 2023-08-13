@@ -1,0 +1,26 @@
+.about-page-body {
+    align-items: center;
+    background-image: url("https://images.unsplash.com/photo-1433321768402-897b0324c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80");
+    background-position: 100% 100%;
+    background-size: cover;
+    display: flex;
+    height: 1000px;
+    justify-content: center;
+    width: 100%;
+}
+
+.about-description-container {
+    background-color: white;
+    border: 2px solid rgb(144, 140, 140);
+    box-shadow: 3px 3px 3px;
+    height: fit-content;
+    /* text-align: center; */
+    margin: 0em auto 4em;
+    padding: 10px 20px;
+    width: 50%;
+}
+
+.about-description {
+    font-size: 20px;
+    line-height: 1.5em;
+}

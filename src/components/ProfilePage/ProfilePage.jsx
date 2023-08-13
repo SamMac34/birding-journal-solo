@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import './ProfilePage.css'
+import LogOutButton from '../LogOutButton/LogOutButton';
 import BirdCollection from "../BirdCollection/BirdCollection";
 import BirdWishlist from "../BirdWishlist/BirdWishlist";
+import './ProfilePage.css'
 
 
 function ProfilePage() {

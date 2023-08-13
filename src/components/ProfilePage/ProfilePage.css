@@ -74,15 +74,10 @@ Profile Container
     letter-spacing: 2px;
 }
 
-.collection-btn {
-    margin: 0.5em;
-    min-width: 5em;
-    min-height: 2em;
-}
-
 .edit-btn, .remove-btn {
+    border-radius: 5px;
     font-size: 18px;
-    margin: 0.5em 1em 0.5em 1em;
+    margin: 0.5em auto;
     width: 6em;
     height: 2.5em;
 }
@@ -96,6 +91,7 @@ Wishlist
 -------------------------------------------------------------------------------- */
 
 .add-to-collection-btn, .remove-from-wishlist-btn, .add-to-wishlist-btn {
+    border-radius: 5px;
     font-size: 18px;
     margin: 0.5em 1em 0.5em 1em;
     width: 6em;

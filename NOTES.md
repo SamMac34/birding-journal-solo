@@ -27,3 +27,5 @@ npm install multer
 9. Shift +cmd+F - Hides browser top
 
 10. clean up desktop/bookmarks
+
+11. Fix logout button 404 error

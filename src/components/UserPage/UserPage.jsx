@@ -11,12 +11,13 @@ function UserPage() {
   return (
     <div className="user-page-container">
       <h2 className="user-name">Welcome Back, <span className="user-name-span">{user.username}</span>!</h2>
-      <h4 className="user-page-h4">Where would you like to go?</h4>
 
       <div className="user-page-btn-container">
+      <h4 className="user-page-h4">Where would you like to go?</h4>
+
         <button className="user-page-profile-btn">
           <Link className="user-page-link" to="/profile">
-            Your Profile
+            My Profile
           </Link>
         </button>
         <button className="user-page-search-btn">
