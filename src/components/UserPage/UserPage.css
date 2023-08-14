@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 20px;
+    /* padding: 20px; */
     align-items: center;
     justify-content: center;
 }
@@ -35,13 +35,12 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    /* justify-content: center; */
     width: 30em;
 }
 
 .user-page-profile-btn,
 .user-page-search-btn {
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 18px;
     height: 3em;
     margin: 1em auto;
@@ -49,10 +48,10 @@
 }
 
 .user-page-logout-btn {
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 18px;
     height: 3em;
-    margin: 3em auto 1em auto;
+    margin: 2em auto 1em auto;
     padding: 1px;
     width: 7em;
 }
