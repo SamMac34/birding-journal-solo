@@ -45,6 +45,7 @@ export default function BasicMenu() {
                 <MenuItem onClick={handleClose} component={Link} to="/home">Home</MenuItem>
                 <MenuItem onClick={handleClose} component={Link} to="/profile">Profile</MenuItem>
                 <MenuItem onClick={handleClose} component={Link} to="/search">Search Birds</MenuItem>
+                <MenuItem onClick={handleClose} component={Link} to="/addbird">Add Bird</MenuItem>
                 <MenuItem onClick={handleClose} component={Link} to="/about">About</MenuItem>
                 <MenuItem onClick={handleClose} component={Link} to="/logout">Logout</MenuItem>
             </Menu>
