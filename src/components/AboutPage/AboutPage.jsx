@@ -10,7 +10,7 @@ function AboutPage() {
   return (
     <div className="about-page-body">
       <div className="about-description-container">
-        
+        <h1>About the Aviary</h1>
         <p className="about-description">
           The Aviary was created to provide bird watchers everywhere with an easy to use 
           tool for keeping track of the birds they've seen and even birds they would
@@ -21,6 +21,21 @@ function AboutPage() {
           just enjoy the beautiful photos of our feathered friends. I hope you enjoy the 
           app and happy birding!
         </p>
+        <h2>Technologies</h2>
+        <ul>
+          <li>React js</li>
+          <li>Node js</li>
+          <li>Material UI</li>
+          <li>Multer</li>
+          <li>Redux</li>
+        </ul>
+        <h2 className="special-thanks-h2">Special thanks to:</h2>
+        <p>Prime Digital Academy</p>
+        <p>Emma and all the Prime instructors and staff</p>
+        <p>All my friends in the Emerald Cohort</p>
+        <p>Nuthatch API</p>
+
+
 
 
       </div>

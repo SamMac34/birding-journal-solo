@@ -92,12 +92,16 @@ Form Treatment
 
 .formPanel {
   box-sizing: border-box;
-  width: 400px;
+  /* float: right; */
+  height: fit-content;
+  width: 350px;
   max-width: 100%;
-  padding: 25px;
-  margin: 40px auto ;
-  background-color: #efefef;
-  border-radius: 3px;
+  padding: 10px 25px 25px 25px;
+  /* margin: 150px 300px 40px 140px; */
+  margin: 150px 400px 40px 140px;
+
+  background-color: #f7f6f6;
+  border-radius: 4px;
   box-shadow: 1px 1px 2px 2px rgb(0, 0, 0, 0.4);
 }
 

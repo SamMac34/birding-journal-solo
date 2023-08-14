@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import './LoginForm.css';
 
 function LoginForm() {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
-  const dispatch = useDispatch();
 
   const login = (event) => {
     event.preventDefault();
@@ -57,8 +61,17 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input className="btn login-btn" type="submit" name="submit" value="Log In" />
       </div>
+      <button
+        type="button"
+        className="btn btn_asLink register-btn"
+        onClick={() => {
+          history.push('/registration');
+        }}
+      >
+        No account? Register here
+      </button>
     </form>
   );
 }
